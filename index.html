@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f0faf5" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Rika Lab" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <title>Rika Lab ✦</title>
+  <style>
+/* =============================================
+   RIKA LAB — Complete Stylesheet
+   Design: Light botanical × Gen Z editorial
+   ============================================= */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+:root {
+–c-bg:       #f0faf5;
+–c-bg2:      #e6f7ef;
+–c-surface:  rgba(255,255,255,0.80);
+–c-border:   rgba(16,120,80,0.13);
+–c-border2:  rgba(16,120,80,0.07);
+–c-text:     #0f2d1e;
+–c-muted:    #6b9080;
+–c-mint:     #059669;
+–c-teal:     #0d9488;
+–c-sky:      #0284c7;
+–c-green:    #16a34a;
+–c-pink:     #db2777;
+–c-gold:     #d97706;
+–c-orange:   #ea580c;
+–c-violet:   #7c3aed;
+–nav-h:      70px;
+–safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html { height: 100%; }
+
+body {
+font-family: ‘Noto Sans JP’, sans-serif;
+background: var(–c-bg);
+color: var(–c-text);
+height: 100%;
+overflow: hidden;
+overscroll-behavior: none;
+}
+
+#app {
+position: relative;
+width: 100%;
+max-width: 430px;
+height: 100svh;
+margin: 0 auto;
+overflow: hidden;
+background: linear-gradient(165deg, #f0faf5 0%, #e8f7f0 40%, #dff4eb 100%);
+}
+
+/* –– BACKGROUND ORBS –– */
+.orb {
+position: absolute;
+border-radius: 50%;
+pointer-events: none;
+z-index: 0;
+animation: orbFloat 12s ease-in-out infinite alternate;
+}
+.orb1 { width: 340px; height: 340px; top: -100px; right: -100px;
+background: radial-gradient(circle, rgba(5,150,105,0.10) 0%, transparent 70%); animation-delay: 0s; }
+.orb2 { width: 280px; height: 280px; bottom: 100px; left: -120px;
+background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%); animation-delay: -4s; }
+.orb3 { width: 200px; height: 200px; top: 45%; right: -60px;
+background: radial-gradient(circle, rgba(2,132,199,0.07) 0%, transparent 70%); animation-delay: -8s; }
+
+@keyframes orbFloat {
+from { transform: translate(0, 0) scale(1); }
+to   { transform: translate(20px, -30px) scale(1.1); }
+}
+
+/* –– SCREENS –– */
+.screen {
+position: absolute;
+inset: 0;
+overflow-y: auto;
+overflow-x: hidden;
+padding-bottom: calc(var(–nav-h) + var(–safe-bottom) + 16px);
+z-index: 1;
+opacity: 0;
+pointer-events: none;
+transform: translateY(12px);
+transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
+-webkit-overflow-scrolling: touch;
+}
+.screen.active {
+opacity: 1;
+pointer-events: all;
+transform: translateY(0);
+}
+.screen::-webkit-scrollbar { display: none; }
+
+/* –– TOP HEADER –– */
+.top-bar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 52px 22px 16px;
+}
+.logo {
+font-family: ‘Syne’, sans-serif;
+font-size: 24px;
+font-weight: 800;
+letter-spacing: -0.5px;
+background: linear-gradient(135deg, #059669 0%, #0d9488 60%, #0284c7 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.logo sup {
+font-size: 11px;
+letter-spacing: 2px;
+font-weight: 600;
+opacity: 0.7;
+}
+.streak-pill {
+display: flex;
+align-items: center;
+gap: 5px;
+background: rgba(217,119,6,0.10);
+border: 1px solid rgba(217,119,6,0.25);
+border-radius: 20px;
+padding: 6px 12px;
+font-family: ‘Syne’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+color: var(–c-gold);
+}
+
+/* –– HERO SECTION –– */
+.hero {
+padding: 4px 22px 20px;
+}
+.hero-sub {
+font-size: 11px;
+letter-spacing: 3px;
+color: var(–c-muted);
+font-family: ‘Syne’, sans-serif;
+font-weight: 600;
+text-transform: uppercase;
+margin-bottom: 6px;
+}
+.hero-heading {
+font-size: 28px;
+font-weight: 900;
+line-height: 1.25;
+letter-spacing: -0.5px;
+}
+.hero-heading .accent {
+background: linear-gradient(135deg, #059669, #0284c7);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+/* –– SECTION LABEL –– */
+.section-label {
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 3px;
+color: var(–c-muted);
+text-transform: uppercase;
+padding: 0 22px;
+margin-bottom: 12px;
+}
+
+/* –– RANDOM BANNER –– */
+.random-banner {
+margin: 0 22px 24px;
+background: linear-gradient(135deg, rgba(5,150,105,0.08) 0%, rgba(2,132,199,0.06) 100%);
+border: 1px solid rgba(5,150,105,0.22);
+border-radius: 22px;
+padding: 18px 20px;
+display: flex;
+align-items: center;
+gap: 16px;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+transition: transform 0.18s, border-color 0.18s;
+-webkit-tap-highlight-color: transparent;
+}
+.random-banner::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(5,150,105,0.06), transparent);
+opacity: 0;
+transition: opacity 0.2s;
+}
+.random-banner:active { transform: scale(0.97); }
+.random-banner:active::before { opacity: 1; }
+.random-icon-wrap {
+width: 48px;
+height: 48px;
+border-radius: 14px;
+background: linear-gradient(135deg, rgba(5,150,105,0.15), rgba(2,132,199,0.10));
+border: 1px solid rgba(5,150,105,0.25);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 22px;
+flex-shrink: 0;
+}
+.random-info { flex: 1; }
+.random-title {
+font-family: ‘Syne’, sans-serif;
+font-size: 15px;
+font-weight: 800;
+background: linear-gradient(135deg, #059669, #0284c7);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 3px;
+}
+.random-desc { font-size: 11px; color: var(–c-muted); line-height: 1.5; }
+.random-badge {
+background: linear-gradient(135deg, rgba(5,150,105,0.12), rgba(2,132,199,0.08));
+border: 1px solid rgba(5,150,105,0.25);
+border-radius: 8px;
+padding: 4px 8px;
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+color: var(–c-teal);
+flex-shrink: 0;
+}
+
+/* –– UNIT GRID –– */
+.unit-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+padding: 0 22px;
+}
+.grade-unit-grid {
+padding: 0 0 4px;
+}
+
+/* –– GRADE ACCORDION –– */
+#grade-accordion {
+padding: 0 22px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.grade-section {
+border-radius: 20px;
+overflow: hidden;
+border: 1px solid rgba(5,150,105,0.12);
+background: rgba(255,255,255,0.7);
+box-shadow: 0 2px 10px rgba(5,150,105,0.06);
+}
+.grade-header {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 10px;
+padding: 14px 16px;
+background: none;
+border: none;
+cursor: pointer;
+text-align: left;
+-webkit-tap-highlight-color: transparent;
+transition: background 0.15s;
+}
+.grade-header:active { background: rgba(5,150,105,0.04); }
+.grade-header-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+.grade-badge {
+font-family: ‘Syne’, sans-serif;
+font-size: 11px;
+font-weight: 800;
+padding: 4px 10px;
+border-radius: 10px;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.grade-header-info { min-width: 0; }
+.grade-header-title {
+font-family: ‘Syne’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+color: var(–c-text);
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.grade-desc {
+font-size: 10px;
+font-weight: 400;
+color: var(–c-muted);
+margin-left: 4px;
+}
+.grade-progress-text {
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+color: var(–c-muted);
+margin-top: 1px;
+}
+.grade-header-right {
+display: flex;
+align-items: center;
+gap: 8px;
+flex-shrink: 0;
+}
+.grade-mini-bar {
+width: 48px;
+height: 4px;
+background: rgba(5,150,105,0.12);
+border-radius: 2px;
+overflow: hidden;
+}
+.grade-mini-fill {
+height: 100%;
+border-radius: 2px;
+transition: width 0.4s ease;
+}
+.grade-chevron {
+font-size: 9px;
+color: var(–c-muted);
+transition: transform 0.25s;
+}
+.grade-body {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+padding: 0 14px;
+}
+.grade-body.open {
+max-height: 2000px;
+padding: 0 14px 14px;
+}
+
+.unit-card {
+background: rgba(255,255,255,0.85);
+border: 1px solid rgba(16,120,80,0.12);
+border-radius: 22px;
+padding: 18px 16px 14px;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+transition: transform 0.18s, border-color 0.2s;
+box-shadow: 0 2px 12px rgba(5,150,105,0.07);
+}
+.unit-card:active { transform: scale(0.96); }
+.unit-card-glow {
+position: absolute;
+top: -30px; right: -30px;
+width: 100px; height: 100px;
+border-radius: 50%;
+filter: blur(30px);
+opacity: 0.35;
+transition: opacity 0.3s;
+}
+.unit-card:active .unit-card-glow { opacity: 0.55; }
+.unit-emoji { font-size: 30px; margin-bottom: 10px; display: block; }
+.unit-name {
+font-size: 12px;
+font-weight: 700;
+line-height: 1.4;
+margin-bottom: 12px;
+color: var(–c-text);
+}
+.unit-progress {
+height: 2px;
+background: rgba(255,255,255,0.08);
+border-radius: 2px;
+margin-bottom: 10px;
+overflow: hidden;
+}
+.unit-progress-fill {
+height: 100%;
+border-radius: 2px;
+background: linear-gradient(90deg, var(–c-mint), var(–c-sky));
+transition: width 0.5s;
+}
+.unit-levels {
+display: flex;
+gap: 4px;
+margin-bottom: 10px;
+}
+.lvl-btn {
+font-family: ‘Syne’, sans-serif;
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 0.5px;
+padding: 4px 8px;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+transition: transform 0.12s, opacity 0.12s;
+flex: 1;
+text-align: center;
+}
+.lvl-btn:active { transform: scale(0.93); opacity: 0.8; }
+.lvl-easy   { background: rgba(22,163,74,0.10); color: #16a34a; border: 1px solid rgba(22,163,74,0.28); }
+.lvl-normal { background: rgba(2,132,199,0.10); color: #0284c7; border: 1px solid rgba(2,132,199,0.28); }
+.lvl-hard   { background: rgba(219,39,119,0.08); color: #db2777; border: 1px solid rgba(219,39,119,0.25); }
+.unit-point-btn {
+width: 100%;
+background: none;
+border: 1px solid var(–c-border);
+border-radius: 10px;
+padding: 6px 8px;
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1px;
+color: var(–c-gold);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 4px;
+transition: background 0.15s, border-color 0.15s;
+}
+.unit-point-btn:active { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.3); }
+
+/* –– QUIZ SCREEN –– */
+.quiz-topbar {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 52px 22px 16px;
+}
+.back-btn {
+width: 38px; height: 38px;
+border-radius: 12px;
+background: rgba(255,255,255,0.9);
+border: 1px solid rgba(16,120,80,0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+color: var(–c-text);
+flex-shrink: 0;
+transition: background 0.15s;
+box-shadow: 0 1px 4px rgba(5,150,105,0.08);
+}
+.back-btn:active { background: rgba(240,250,245,0.9); }
+.back-btn svg { width: 18px; height: 18px; }
+.quiz-meta { flex: 1; min-width: 0; }
+.quiz-unit-name {
+font-size: 11px;
+color: var(–c-muted);
+font-family: ‘Syne’, sans-serif;
+letter-spacing: 1.5px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.quiz-level-chip {
+display: inline-block;
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1px;
+padding: 3px 10px;
+border-radius: 8px;
+margin-top: 3px;
+}
+.chip-easy   { background: rgba(22,163,74,0.10); color: #15803d; }
+.chip-normal { background: rgba(2,132,199,0.10); color: #0369a1; }
+.chip-hard   { background: rgba(219,39,119,0.08); color: #be185d; }
+.chip-mix    { background: rgba(124,58,237,0.08); color: #6d28d9; }
+.quiz-counter {
+font-family: ‘Syne’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+color: var(–c-muted);
+flex-shrink: 0;
+}
+.quiz-counter span { color: var(–c-text); }
+
+.progress-wrap {
+margin: 0 22px 20px;
+height: 3px;
+background: rgba(5,150,105,0.12);
+border-radius: 3px;
+overflow: hidden;
+}
+.progress-fill {
+height: 100%;
+border-radius: 3px;
+background: linear-gradient(90deg, #059669, #0d9488, #0284c7);
+transition: width 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+
+.question-wrap { padding: 0 22px; }
+.question-card {
+background: rgba(255,255,255,0.92);
+border: 1px solid rgba(5,150,105,0.13);
+border-radius: 24px;
+padding: 24px 22px;
+margin-bottom: 14px;
+position: relative;
+overflow: hidden;
+box-shadow: 0 2px 16px rgba(5,150,105,0.08);
+}
+.question-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 3px;
+background: linear-gradient(90deg, #059669, #0d9488, #0284c7);
+}
+.q-num {
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 3px;
+color: var(–c-muted);
+margin-bottom: 14px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.q-num::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: var(–c-border);
+}
+.q-text {
+font-size: 16px;
+font-weight: 700;
+line-height: 1.65;
+letter-spacing: 0.3px;
+}
+
+.choices { display: flex; flex-direction: column; gap: 10px; }
+.choice {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 14px 16px;
+background: rgba(255,255,255,0.88);
+border: 1px solid rgba(5,150,105,0.13);
+border-radius: 16px;
+cursor: pointer;
+transition: all 0.18s;
+text-align: left;
+font-size: 14px;
+font-weight: 500;
+color: var(–c-text);
+font-family: ‘Noto Sans JP’, sans-serif;
+line-height: 1.5;
+position: relative;
+overflow: hidden;
+box-shadow: 0 1px 4px rgba(5,150,105,0.05);
+}
+.choice:not(:disabled):active { transform: scale(0.98); }
+.choice:not(:disabled):hover {
+background: rgba(240,250,245,0.95);
+border-color: rgba(5,150,105,0.25);
+transform: translateX(3px);
+}
+.choice:disabled { cursor: default; }
+.choice-key {
+width: 28px; height: 28px;
+border-radius: 9px;
+background: rgba(5,150,105,0.07);
+border: 1px solid rgba(5,150,105,0.15);
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Syne’, sans-serif;
+font-size: 11px;
+font-weight: 700;
+flex-shrink: 0;
+transition: all 0.18s;
+color: var(–c-muted);
+}
+.choice.correct {
+background: rgba(22,163,74,0.08);
+border-color: rgba(22,163,74,0.40);
+color: #15803d;
+}
+.choice.correct .choice-key {
+background: #16a34a;
+border-color: #16a34a;
+color: #fff;
+}
+.choice.wrong {
+background: rgba(219,39,119,0.05);
+border-color: rgba(219,39,119,0.20);
+color: var(–c-muted);
+}
+.choice.wrong .choice-key {
+background: rgba(219,39,119,0.10);
+border-color: rgba(219,39,119,0.25);
+color: #db2777;
+}
+.choice-shimmer {
+position: absolute;
+inset: 0;
+background: linear-gradient(90deg, transparent, rgba(22,163,74,0.07), transparent);
+transform: translateX(-100%);
+animation: shimmer 0.5s ease forwards;
+}
+@keyframes shimmer { to { transform: translateX(100%); } }
+
+.explanation-card {
+margin-top: 12px;
+background: linear-gradient(135deg, rgba(5,150,105,0.07), rgba(2,132,199,0.04));
+border: 1px solid rgba(5,150,105,0.20);
+border-radius: 16px;
+padding: 14px 16px;
+display: flex;
+gap: 10px;
+animation: fadeUp 0.3s ease;
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.explanation-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.explanation-text { font-size: 12px; line-height: 1.7; color: #065f46; }
+
+.next-btn {
+width: 100%;
+margin-top: 16px;
+padding: 16px;
+border-radius: 16px;
+border: none;
+background: linear-gradient(135deg, #059669, #0d9488);
+color: #fff;
+font-family: ‘Syne’, sans-serif;
+font-size: 14px;
+font-weight: 800;
+letter-spacing: 1px;
+cursor: pointer;
+transition: opacity 0.2s, transform 0.18s;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+box-shadow: 0 4px 14px rgba(5,150,105,0.25);
+}
+.next-btn:active { opacity: 0.88; transform: scale(0.98); }
+
+/* –– RESULT SCREEN –– */
+.result-screen {
+padding: 52px 22px 32px;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: calc(100svh - var(–nav-h) - var(–safe-bottom));
+}
+.result-stars {
+font-size: 40px;
+letter-spacing: 4px;
+margin-bottom: 16px;
+animation: starPop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+@keyframes starPop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.result-score-ring {
+width: 140px; height: 140px;
+margin-bottom: 24px;
+position: relative;
+}
+.result-score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: rgba(5,150,105,0.12); stroke-width: 6; }
+.ring-fill {
+fill: none;
+stroke: url(#ringGrad);
+stroke-width: 6;
+stroke-linecap: round;
+stroke-dasharray: 339.3;
+stroke-dashoffset: 339.3;
+transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1) 0.3s;
+}
+.result-score-label {
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.result-score-num {
+font-family: ‘Syne’, sans-serif;
+font-size: 36px;
+font-weight: 800;
+background: linear-gradient(135deg, #059669, #0284c7);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+line-height: 1;
+}
+.result-score-total { font-size: 13px; color: var(–c-muted); margin-top: 4px; }
+.result-message {
+font-size: 18px;
+font-weight: 900;
+margin-bottom: 6px;
+text-align: center;
+}
+.result-sub {
+font-size: 12px;
+color: var(–c-muted);
+margin-bottom: 28px;
+text-align: center;
+line-height: 1.6;
+}
+.earned-badges {
+width: 100%;
+margin-bottom: 28px;
+}
+.earned-badges-title {
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 3px;
+color: var(–c-muted);
+text-align: center;
+margin-bottom: 12px;
+}
+.earned-badges-list {
+display: flex;
+gap: 10px;
+justify-content: center;
+flex-wrap: wrap;
+}
+.earned-badge-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 4px;
+animation: badgePop 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes badgePop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.earned-badge-emoji {
+width: 52px; height: 52px;
+border-radius: 16px;
+background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(251,191,36,0.08));
+border: 1px solid rgba(251,191,36,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+}
+.earned-badge-name { font-size: 10px; color: var(–c-gold); font-weight: 700; }
+
+.result-btns { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.btn-primary {
+padding: 16px;
+border-radius: 16px;
+border: none;
+background: linear-gradient(135deg, #059669, #0d9488);
+color: #fff;
+font-family: ‘Syne’, sans-serif;
+font-size: 14px;
+font-weight: 800;
+letter-spacing: 1px;
+cursor: pointer;
+transition: opacity 0.2s, transform 0.18s;
+box-shadow: 0 4px 14px rgba(5,150,105,0.25);
+}
+.btn-primary:active { opacity: 0.88; transform: scale(0.98); }
+.btn-secondary {
+padding: 14px;
+border-radius: 16px;
+border: 1px solid rgba(5,150,105,0.18);
+background: rgba(255,255,255,0.8);
+color: var(–c-text);
+font-family: ‘Syne’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1px;
+cursor: pointer;
+transition: background 0.15s;
+}
+.btn-secondary:active { background: rgba(240,250,245,0.95); }
+
+/* –– BADGES SCREEN –– */
+.badges-screen { padding: 52px 22px 32px; }
+.badges-header { margin-bottom: 24px; }
+.badges-count {
+font-family: ‘Syne’, sans-serif;
+font-size: 13px;
+color: var(–c-muted);
+margin-top: 6px;
+}
+.badges-count span { color: var(–c-gold); font-weight: 700; font-size: 18px; }
+.badge-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 12px;
+}
+.badge-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 6px;
+padding: 16px 8px;
+background: rgba(255,255,255,0.82);
+border: 1px solid rgba(5,150,105,0.12);
+border-radius: 18px;
+transition: transform 0.15s;
+cursor: default;
+position: relative;
+overflow: hidden;
+box-shadow: 0 1px 6px rgba(5,150,105,0.05);
+}
+.badge-item.unlocked {
+border-color: rgba(217,119,6,0.25);
+background: linear-gradient(135deg, rgba(217,119,6,0.06), rgba(217,119,6,0.02));
+}
+.badge-item.unlocked.rare {
+border-color: rgba(124,58,237,0.28);
+background: linear-gradient(135deg, rgba(124,58,237,0.07), rgba(2,132,199,0.05));
+}
+.badge-emoji-wrap {
+width: 50px; height: 50px;
+border-radius: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+position: relative;
+}
+.badge-item.locked .badge-emoji-wrap { filter: grayscale(1); opacity: 0.3; }
+.badge-item.unlocked .badge-emoji-wrap {
+background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(251,191,36,0.05));
+}
+.badge-item.unlocked.rare .badge-emoji-wrap {
+background: linear-gradient(135deg, rgba(196,181,253,0.2), rgba(125,211,252,0.1));
+}
+.rare-glow {
+position: absolute;
+inset: 0;
+border-radius: 14px;
+background: linear-gradient(135deg, rgba(196,181,253,0.3), rgba(125,211,252,0.2));
+animation: rareGlow 2s ease-in-out infinite alternate;
+}
+@keyframes rareGlow { from { opacity: 0.4; } to { opacity: 0.8; } }
+.badge-name {
+font-size: 10px;
+font-weight: 700;
+text-align: center;
+line-height: 1.3;
+color: #94a3b8;
+}
+.badge-item.unlocked .badge-name { color: #d97706; }
+.badge-item.unlocked.rare .badge-name { color: #7c3aed; }
+.badge-new-dot {
+position: absolute;
+top: 8px; right: 8px;
+width: 8px; height: 8px;
+border-radius: 50%;
+background: #4ade80;
+box-shadow: 0 0 6px #4ade80;
+}
+
+/* –– POINT OVERLAY –– */
+.overlay {
+position: fixed;
+inset: 0;
+z-index: 200;
+display: flex;
+align-items: flex-end;
+transition: opacity 0.25s;
+}
+.overlay.hidden { opacity: 0; pointer-events: none; }
+.overlay-bg {
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.6);
+backdrop-filter: blur(6px);
+}
+.overlay-sheet {
+position: relative;
+z-index: 1;
+width: 100%;
+max-width: 430px;
+margin: 0 auto;
+background: #f8fdfb;
+border-top: 1px solid rgba(5,150,105,0.15);
+border-radius: 28px 28px 0 0;
+padding: 20px 24px calc(32px + var(–safe-bottom));
+max-height: 85svh;
+overflow-y: auto;
+transform: translateY(20px);
+transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+box-shadow: 0 -4px 30px rgba(5,150,105,0.10);
+}
+.overlay:not(.hidden) .overlay-sheet { transform: translateY(0); }
+.overlay-handle {
+width: 36px; height: 4px;
+border-radius: 2px;
+background: rgba(5,150,105,0.18);
+margin: 0 auto 20px;
+}
+.point-unit-header {
+display: flex;
+align-items: center;
+gap: 14px;
+margin-bottom: 20px;
+}
+.point-unit-emoji {
+font-size: 36px;
+width: 60px; height: 60px;
+border-radius: 18px;
+background: var(–c-surface);
+border: 1px solid var(–c-border);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+}
+.point-unit-title {
+font-size: 10px;
+color: var(–c-muted);
+font-family: ‘Syne’, sans-serif;
+letter-spacing: 2px;
+margin-bottom: 4px;
+}
+.point-unit-name { font-size: 18px; font-weight: 900; }
+.point-divider {
+height: 1px;
+background: var(–c-border);
+margin-bottom: 18px;
+}
+.point-list { display: flex; flex-direction: column; gap: 12px; }
+.point-item {
+display: flex;
+gap: 12px;
+padding: 14px 16px;
+background: rgba(255,255,255,0.85);
+border: 1px solid rgba(5,150,105,0.10);
+border-radius: 14px;
+align-items: flex-start;
+box-shadow: 0 1px 4px rgba(5,150,105,0.05);
+}
+.point-item-icon {
+font-size: 20px;
+flex-shrink: 0;
+margin-top: 1px;
+}
+.point-item-text {
+font-size: 13px;
+line-height: 1.65;
+font-weight: 500;
+color: #0f2d1e;
+}
+.point-label {
+font-family: ‘Syne’, sans-serif;
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 2px;
+color: #059669;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.point-label::before, .point-label::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: rgba(5,150,105,0.18);
+}
+
+/* –– BADGE UNLOCK POPUP –– */
+.badge-unlock-popup {
+position: relative;
+z-index: 1;
+background: #fffdf7;
+border: 1px solid rgba(217,119,6,0.25);
+border-radius: 28px;
+padding: 36px 28px 28px;
+margin: 20px;
+text-align: center;
+animation: popIn 0.45s cubic-bezier(0.34,1.56,0.64,1) both;
+box-shadow: 0 8px 40px rgba(217,119,6,0.12);
+}
+@keyframes popIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.badge-unlock-glow {
+position: absolute;
+top: -40px; left: 50%;
+transform: translateX(-50%);
+width: 150px; height: 150px;
+background: radial-gradient(circle, rgba(251,191,36,0.2), transparent 70%);
+pointer-events: none;
+}
+.badge-unlock-label {
+font-family: ‘Syne’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 3px;
+color: var(–c-gold);
+margin-bottom: 16px;
+}
+.badge-unlock-emoji {
+font-size: 56px;
+margin-bottom: 14px;
+display: block;
+animation: emojiSpin 0.5s ease 0.2s both;
+}
+@keyframes emojiSpin { from { transform: rotate(-20deg) scale(0.8); } to { transform: rotate(0) scale(1); } }
+.badge-unlock-name {
+font-size: 20px;
+font-weight: 900;
+margin-bottom: 6px;
+color: var(–c-gold);
+}
+.badge-unlock-desc {
+font-size: 13px;
+color: var(–c-muted);
+margin-bottom: 24px;
+line-height: 1.6;
+}
+.badge-unlock-close {
+width: 100%;
+padding: 14px;
+border-radius: 14px;
+border: none;
+background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,191,36,0.1));
+border: 1px solid rgba(251,191,36,0.3);
+color: var(–c-gold);
+font-family: ‘Syne’, sans-serif;
+font-size: 13px;
+font-weight: 800;
+letter-spacing: 1px;
+cursor: pointer;
+transition: opacity 0.15s;
+}
+
+/* –– BOTTOM NAV –– */
+.bottom-nav {
+position: fixed;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 100%;
+max-width: 430px;
+height: calc(var(–nav-h) + var(–safe-bottom));
+background: rgba(248,253,250,0.94);
+backdrop-filter: blur(24px);
+-webkit-backdrop-filter: blur(24px);
+border-top: 1px solid rgba(5,150,105,0.13);
+display: flex;
+align-items: flex-start;
+padding-top: 8px;
+z-index: 100;
+box-shadow: 0 -2px 16px rgba(5,150,105,0.07);
+}
+.nav-btn {
+flex: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 3px;
+background: none;
+border: none;
+cursor: pointer;
+color: #9db8ae;
+font-family: ‘Syne’, sans-serif;
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 1px;
+padding: 6px 0;
+transition: color 0.2s;
+}
+.nav-btn svg { width: 22px; height: 22px; }
+.nav-btn.active { color: #059669; }
+.nav-btn-special {
+width: 46px; height: 46px;
+border-radius: 14px;
+background: linear-gradient(135deg, rgba(5,150,105,0.15), rgba(2,132,199,0.10));
+border: 1px solid rgba(5,150,105,0.25);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: -18px;
+color: #059669;
+transition: transform 0.18s, opacity 0.18s;
+box-shadow: 0 3px 10px rgba(5,150,105,0.15);
+}
+.nav-btn:active .nav-btn-special { transform: scale(0.93); opacity: 0.85; }
+
+/* –– UTILITIES –– */
+.hidden { opacity: 0 !important; pointer-events: none !important; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.pulse { animation: pulse 1.5s ease-in-out infinite; }
+</style>
+
+</head>
+<body>
+  <div id="app">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div id="screen-home" class="screen active"></div>
+    <div id="screen-quiz" class="screen"></div>
+    <div id="screen-result" class="screen"></div>
+    <nav class="bottom-nav" id="bottom-nav">
+      <button class="nav-btn active" data-tab="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+        <span>ホーム</span>
+      </button>
+      <button class="nav-btn" data-tab="badges">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M8.56 13.16L7 22l5-3 5 3-1.56-8.84"/></svg>
+        <span>バッジ</span>
+      </button>
+      <button class="nav-btn" id="random-nav-btn">
+        <div class="nav-btn-special">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        </div>
+        <span>ミックス</span>
+      </button>
+    </nav>
+    <div id="point-overlay" class="overlay hidden">
+      <div class="overlay-bg" id="point-overlay-close"></div>
+      <div class="overlay-sheet" id="point-sheet"></div>
+    </div>
+    <div id="badge-unlock-overlay" class="overlay hidden">
+      <div class="overlay-bg"></div>
+      <div class="badge-unlock-popup" id="badge-unlock-popup"></div>
+    </div>
+    <!-- Badge screen (hidden tab) -->
+    <div id="screen-badges" class="screen"></div>
+  </div>
+  <script>
+// =============================================
+//  RIKA LAB — Data
+// =============================================
+
+// =============================================
+//  RIKA LAB — Units & Questions Data
+//  四谷大塚カリキュラム対応（4〜6年生）
+// =============================================
+
+const GRADE_GROUPS = [
+{ id: ‘g4’, label: ‘4年生’, color: ‘#16a34a’, desc: ‘観察・身近な自然’ },
+{ id: ‘g5’, label: ‘5年生’, color: ‘#0284c7’, desc: ‘本格単元学習’ },
+{ id: ‘g6’, label: ‘6年生’, color: ‘#db2777’, desc: ‘計算・応用・総合’ },
+];
+
+const UNITS = [
+// ===== 4年生 =====
+{
+id: ‘g4_plants’, grade: ‘g4’, name: ‘植物の成長’, emoji: ‘🌱’, color: ‘#4ade80’,
+point: { items: [
+{ icon: ‘🌿’, text: ‘発芽の3条件：水・適切な温度・空気（光は不要！）’ },
+{ icon: ‘☀️’, text: ‘成長の条件：光・肥料（水・温度・空気は発芽と共通）’ },
+{ icon: ‘🍃’, text: ‘光合成：葉が光を受けてデンプンをつくる。葉緑体で行われる’ },
+{ icon: ‘🌸’, text: ‘季節の植物：春→アブラナ・桜 夏→ヒマワリ 秋→コスモス’ },
+{ icon: ‘💧’, text: ‘根・茎・葉のつながり：根が吸収した水が茎を通って葉へ’ },
+]}
+},
+{
+id: ‘g4_animals’, grade: ‘g4’, name: ‘動物の観察’, emoji: ‘🐛’, color: ‘#86efac’,
+point: { items: [
+{ icon: ‘🦋’, text: ‘完全変態：卵→幼虫→さなぎ→成虫（チョウ・カブトムシ・ハチ）’ },
+{ icon: ‘🦗’, text: ‘不完全変態：卵→幼虫→成虫（バッタ・トンボ・セミ）’ },
+{ icon: ‘🐟’, text: ‘魚の体：背骨がある（脊椎動物）。えら呼吸。変温動物’ },
+{ icon: ‘🐦’, text: ‘鳥の体：背骨あり・恒温動物・卵生・肺呼吸・羽毛がある’ },
+{ icon: ‘🔎’, text: ‘昆虫の特徴：体が頭・胸・腹の3つ / 足が6本 / 触角2本’ },
+]}
+},
+{
+id: ‘g4_body’, grade: ‘g4’, name: ‘ヒトのからだ①’, emoji: ‘🫀’, color: ‘#fca5a5’,
+point: { items: [
+{ icon: ‘🍚’, text: ‘消化：食べ物を分解して吸収できる形にする。小腸で吸収’ },
+{ icon: ‘🫁’, text: ‘呼吸：肺で酸素を取り込み、二酸化炭素を出す’ },
+{ icon: ‘💓’, text: ‘心臓：血液を全身に送るポンプ。1分間に約70回拍動’ },
+{ icon: ‘🩸’, text: ‘血液：酸素・栄養・不要物を運ぶ。心臓→動脈→毛細血管→静脈’ },
+{ icon: ‘🧪’, text: ‘デンプンの検出：ヨウ素液→青紫色に変化する’ },
+]}
+},
+{
+id: ‘g4_weather’, grade: ‘g4’, name: ‘天気と季節’, emoji: ‘🌤️’, color: ‘#93c5fd’,
+point: { items: [
+{ icon: ‘☁️’, text: ‘雲の種類：積雲（晴れ）積乱雲（雷雨）層雲（霧雨）巻雲（高い）’ },
+{ icon: ‘🌡️’, text: ‘気温の測り方：日陰・地上1.2〜1.5mの高さ・温度計を風通しよく’ },
+{ icon: ‘🌧️’, text: ‘雨のでき方：水蒸気→雲粒→水滴が集まって雨つぶになる’ },
+{ icon: ‘🍂’, text: ‘四季の変化：気温・日照時間・植物の状態で季節を判断’ },
+{ icon: ‘🌈’, text: ‘虹：雨上がりに太陽の反対側にできる。光の屈折・反射による’ },
+]}
+},
+{
+id: ‘g4_seasons’, grade: ‘g4’, name: ‘季節の生物’, emoji: ‘🍁’, color: ‘#fdba74’,
+point: { items: [
+{ icon: ‘🐻’, text: ‘冬眠する動物：クマ・カエル・ヘビ・コウモリ。体温を下げてエネルギーを節約’ },
+{ icon: ‘🦅’, text: ‘渡り鳥：秋にツバメが南へ。冬にハクチョウ・マガモが北から来る’ },
+{ icon: ‘🌿’, text: ‘落葉樹と常緑樹：サクラは落葉樹。スギ・マツは常緑樹’ },
+{ icon: ‘🌱’, text: ‘種子の冬越し：多くの一年草は種子で越冬。発芽は春の暖かさを待つ’ },
+{ icon: ‘🐸’, text: ‘カエルの一生：卵→おたまじゃくし→カエル（変態）。水辺に産卵’ },
+]}
+},
+{
+id: ‘g4_electricity1’, grade: ‘g4’, name: ‘電気①’, emoji: ‘🔋’, color: ‘#fde68a’,
+point: { items: [
+{ icon: ‘⚡’, text: ‘回路：電気が流れる道すじ。電池・導線・豆電球でつくる’ },
+{ icon: ‘🔌’, text: ‘直列つなぎ：電球が直列→明るさ同じ。1つ消えると全部消える’ },
+{ icon: ‘💡’, text: ‘並列つなぎ：電球が並列→それぞれ独立。1つ消えても残りは点灯’ },
+{ icon: ‘🧲’, text: ‘導体：銅・鉄・アルミなど金属。絶縁体：ゴム・ガラス・プラスチック’ },
+{ icon: ‘🔍’, text: ‘電流の向き：電池の＋極から出て、−極へ戻る（外回り）’ },
+]}
+},
+{
+id: ‘g4_electricity2’, grade: ‘g4’, name: ‘電気②（光・音・熱）’, emoji: ‘💡’, color: ‘#fef08a’,
+point: { items: [
+{ icon: ‘🌡️’, text: ‘ニクロム線：電流が流れると発熱する（電熱線の一種）’ },
+{ icon: ‘🔊’, text: ‘電磁石：コイルに電流を流すと磁石になる。向き・強さを変えられる’ },
+{ icon: ‘🧲’, text: ‘電磁石の強さ：コイルの巻き数を増やす・電流を大きくすると強くなる’ },
+{ icon: ‘💡’, text: ‘LED vs 豆電球：LEDは少ない電力で明るく光る・長持ちする’ },
+{ icon: ‘⚡’, text: ‘乾電池の直列：電圧が増えて明るくなる / 並列：長持ちするが明るさ同じ’ },
+]}
+},
+{
+id: ‘g4_matter’, grade: ‘g4’, name: ‘ものの性質’, emoji: ‘⚖️’, color: ‘#d9f99d’,
+point: { items: [
+{ icon: ‘⚖️’, text: ‘重さ：形を変えても重さは変わらない（粘土を押しても同じ）’ },
+{ icon: ‘📦’, text: ‘体積：同じ重さでも体積はものによって違う（鉄 vs 木など）’ },
+{ icon: ‘🧂’, text: ‘溶け方：食塩は水に溶けても重さは変わらない（見えなくなるだけ）’ },
+{ icon: ‘🌡️’, text: ‘温度と溶解度：水温が上がると食塩・ミョウバンは多く溶ける’ },
+{ icon: ‘🔬’, text: ‘濾過：液体と溶けない固体を分ける方法（ろ紙を使う）’ },
+]}
+},
+{
+id: ‘g4_river’, grade: ‘g4’, name: ‘流水と地形’, emoji: ‘🏔️’, color: ‘#bef264’,
+point: { items: [
+{ icon: ‘🏔️’, text: ‘川の上流：流れが速い・大きい岩・V字谷。下流：遅い・砂や泥・広い川原’ },
+{ icon: ‘🌊’, text: ‘川のはたらき：侵食（削る）・運搬（運ぶ）・堆積（積もる）’ },
+{ icon: ‘🏖️’, text: ‘三角州（デルタ）：河口に砂・泥が堆積してできる三角形の地形’ },
+{ icon: ‘🪨’, text: ‘扇状地：山から平野に出た場所に砂・礫が堆積してできる扇形の地形’ },
+{ icon: ‘🌧️’, text: ‘洪水・土砂崩れ：大雨で川の水が増えて氾濫。山の斜面も崩れやすくなる’ },
+]}
+},
+{
+id: ‘g4_spring’, grade: ‘g4’, name: ‘ばね’, emoji: ‘🪝’, color: ‘#a5f3fc’,
+point: { items: [
+{ icon: ‘📏’, text: ‘フックの法則：ばねの伸びは力（おもりの重さ）に比例する’ },
+{ icon: ‘⚖️’, text: ‘ばねばかり：ばねの伸びを利用して力（重さ）を測る道具’ },
+{ icon: ‘🔄’, text: ‘ばねの特性：自然長に戻ろうとする力（弾性力）が働く’ },
+{ icon: ‘➕’, text: ‘直列つなぎ：伸びが2倍になる / 並列つなぎ：伸びが半分になる’ },
+{ icon: ‘⚖️’, text: ‘つりあい：上向きの力＝下向きの力 のとき静止する’ },
+]}
+},
+
+// ===== 5年生 =====
+{
+id: ‘g5_plants’, grade: ‘g5’, name: ‘植物のつくりと働き’, emoji: ‘🌿’, color: ‘#4ade80’,
+point: { items: [
+{ icon: ‘🌺’, text: ‘花のつくり：がく・花びら・おしべ・めしべ。受粉→種子・果実をつくる’ },
+{ icon: ‘🌱’, text: ‘根のつくり：ひげ根（単子葉）と主根・側根（双子葉）。吸水と固定’ },
+{ icon: ‘🍃’, text: ‘葉脈：平行脈（単子葉）と網状脈（双子葉）。水と栄養の通り道’ },
+{ icon: ‘💦’, text: ‘蒸散：葉の気孔から水蒸気が出る。根からの吸水力につながる’ },
+{ icon: ‘🌾’, text: ‘種子の散布：風（タンポポ・マツ）・動物（オナモミ）・水（ヤシ）’ },
+]}
+},
+{
+id: ‘g5_animals’, grade: ‘g5’, name: ‘動物の分類・生態’, emoji: ‘🦎’, color: ‘#86efac’,
+point: { items: [
+{ icon: ‘🐟’, text: ‘脊椎動物5類：魚類・両生類・は虫類・鳥類・哺乳類（背骨あり）’ },
+{ icon: ‘🦑’, text: ‘無脊椎動物：昆虫・クモ・甲殻類・軟体動物（イカ・タコ）など’ },
+{ icon: ‘🌿’, text: ‘食物連鎖：植物（生産者）→草食動物→肉食動物。頂点捕食者まで’ },
+{ icon: ‘🔄’, text: ‘物質の循環：炭素・窒素が生態系を循環する。分解者（微生物）が重要’ },
+{ icon: ‘🐸’, text: ‘両生類の特徴：幼生は水中（えら呼吸）・成体は陸上（肺＋皮膚呼吸）’ },
+]}
+},
+{
+id: ‘g5_body’, grade: ‘g5’, name: ‘ヒトのからだ②’, emoji: ‘🧠’, color: ‘#f9a8d4’,
+point: { items: [
+{ icon: ‘🧠’, text: ‘神経系：脳（判断）・せきずい（中継）・感覚神経・運動神経’ },
+{ icon: ‘⚡’, text: ‘反射：熱いもの→手を引く。脳を通らずせきずいで処理→速い！’ },
+{ icon: ‘👁️’, text: ‘感覚器官：目（光）・耳（音・平衡）・鼻（におい）・舌（味）・皮膚（触覚）’ },
+{ icon: ‘🦴’, text: ‘骨格・筋肉：骨は支持・保護・造血。筋肉は縮む力だけ（伸ばすのは拮抗筋）’ },
+{ icon: ‘🔬’, text: ‘細胞：生物の基本単位。細胞膜・核・細胞質。植物は細胞壁あり’ },
+]}
+},
+{
+id: ‘g5_electricity’, grade: ‘g5’, name: ‘電流と磁界’, emoji: ‘🧲’, color: ‘#fbbf24’,
+point: { items: [
+{ icon: ‘⚡’, text: ‘オームの法則：電圧(V) = 電流(A) × 抵抗(Ω) ← 入試最頻出！’ },
+{ icon: ‘🔋’, text: ‘直列：電流が同じ・電圧の和 / 並列：電圧が同じ・電流の和’ },
+{ icon: ‘🧲’, text: ‘磁力線：N極から出てS極へ入る。磁界の向きを表す’ },
+{ icon: ‘🔄’, text: ‘電磁誘導：磁石を動かす→コイルに電流が流れる（発電の原理）’ },
+{ icon: ‘📡’, text: ‘モーター：電流が磁界から力を受けて回転する（フレミング左手の法則）’ },
+]}
+},
+{
+id: ‘g5_light’, grade: ‘g5’, name: ‘光’, emoji: ‘🌈’, color: ‘#c4b5fd’,
+point: { items: [
+{ icon: ‘🪞’, text: ‘反射の法則：入射角＝反射角。鏡に当たった光は規則正しく跳ね返る’ },
+{ icon: ‘🔮’, text: ‘屈折：光が水やガラスに入ると曲がる。空気→水は水面に近づく向きに’ },
+{ icon: ‘🔍’, text: ‘凸レンズ：平行光線を焦点に集める。焦点距離が重要’ },
+{ icon: ‘🌈’, text: ‘プリズム：白色光を分けると虹色（分散）。赤が一番曲がりにくい’ },
+{ icon: ‘👁️’, text: ‘目のつくり：レンズ（水晶体）で屈折→網膜に像を結ぶ。倒立実像’ },
+]}
+},
+{
+id: ‘g5_sound’, grade: ‘g5’, name: ‘音’, emoji: ‘🎵’, color: ‘#a5f3fc’,
+point: { items: [
+{ icon: ‘🔊’, text: ‘音の伝わり：物体の振動が空気を伝わる。真空中では伝わらない’ },
+{ icon: ‘📏’, text: ‘音の高さ：振動数（Hz）で決まる。弦が短い・細い・張りが強い→高い音’ },
+{ icon: ‘📢’, text: ‘音の大きさ：振幅が大きいほど大きい音。単位はdB（デシベル）’ },
+{ icon: ‘🏔️’, text: ‘やまびこ（反響）：音が壁や山に反射して戻ってくる。距離の計算に使う’ },
+{ icon: ‘🌊’, text: ‘音の速さ：空気中で約340m/s。光より遅い（雷と稲妻のタイムラグ）’ },
+]}
+},
+{
+id: ‘g5_force’, grade: ‘g5’, name: ‘力と運動’, emoji: ‘⚙️’, color: ‘#fed7aa’,
+point: { items: [
+{ icon: ‘⚖️’, text: ‘てこの原理：力点×距離＝作用点×距離（つりあいの式）← 計算頻出’ },
+{ icon: ‘🪢’, text: ‘滑車：動滑車1つ→力は半分・距離は2倍。定滑車→向きが変わるだけ’ },
+{ icon: ‘🌊’, text: ‘浮力：物体が押しのけた液体の重さ分だけ上向きの力が働く’ },
+{ icon: ‘📐’, text: ‘力の合成：同じ向きなら足す・逆なら引く。つりあいは合力が0’ },
+{ icon: ‘🏃’, text: ‘速さ：速さ(m/s) = 距離(m) ÷ 時間(s)。等速直線運動を理解しよう’ },
+]}
+},
+{
+id: ‘g5_solution’, grade: ‘g5’, name: ‘ものの溶け方’, emoji: ‘🧪’, color: ‘#a7f3d0’,
+point: { items: [
+{ icon: ‘🌡️’, text: ‘溶解度：水100gに溶ける最大量。温度↑→食塩はほぼ変わらず、ミョウバンは急増’ },
+{ icon: ‘🔮’, text: ‘飽和水溶液：これ以上溶けない状態。飽和量を超えると結晶が出る’ },
+{ icon: ‘❄️’, text: ‘再結晶：高温で飽和させて冷やすと結晶が出てくる（ミョウバンに有効）’ },
+{ icon: ‘📊’, text: ‘濃さ(%)：溶質(g) ÷ 溶液(g) × 100。溶液＝溶質＋溶媒’ },
+{ icon: ‘🔬’, text: ‘水溶液の性質：均一・透明・時間がたっても変化しない’ },
+]}
+},
+{
+id: ‘g5_water’, grade: ‘g5’, name: ‘空気と水の変化’, emoji: ‘💧’, color: ‘#bae6fd’,
+point: { items: [
+{ icon: ‘💧’, text: ‘水の三態：固体（氷）0℃以下→液体（水）→気体（水蒸気）100℃以上’ },
+{ icon: ‘🌡️’, text: ‘沸点・融点：純粋な物質は一定温度で変化。混合物では温度が変わり続ける’ },
+{ icon: ‘🌫️’, text: ‘蒸発と沸騰：蒸発はどの温度でも起きる。沸騰は100℃（1気圧）で起きる’ },
+{ icon: ‘💨’, text: ‘空気の成分：窒素約78%・酸素約21%・アルゴン約1%・CO₂約0.04%’ },
+{ icon: ‘🔬’, text: ‘水蒸気→水：冷やされると凝結（結露）。露点は湿度で変わる’ },
+]}
+},
+{
+id: ‘g5_celestial’, grade: ‘g5’, name: ‘月・太陽・地球’, emoji: ‘🌙’, color: ‘#e9d5ff’,
+point: { items: [
+{ icon: ‘🌕’, text: ‘月の満ち欠け：約29.5日周期。新月→右から満ちて→満月→左から欠けて→新月’ },
+{ icon: ‘🌑’, text: ‘日食：月が太陽を隠す（月が地球と太陽の間）。新月のとき起こりうる’ },
+{ icon: ‘🌘’, text: ‘月食：地球の影に月が入る（地球が月と太陽の間）。満月のとき起こりうる’ },
+{ icon: ‘🔄’, text: ‘地球の自転：1日1回（西→東）。太陽が東から西へ動いて見える原因’ },
+{ icon: ‘🌍’, text: ‘地球の公転：1年1回。季節の変化・見える星座が変わる原因’ },
+]}
+},
+{
+id: ‘g5_earth’, grade: ‘g5’, name: ‘地層と化石’, emoji: ‘🪨’, color: ‘#d4a574’,
+point: { items: [
+{ icon: ‘🌊’, text: ‘地層のでき方：土砂が水底に積もる。下の層ほど古い（地層累重の法則）’ },
+{ icon: ‘⏳’, text: ‘示準化石：広い地域・短期間の生物→地層の年代がわかる（フズリナ・アンモナイト）’ },
+{ icon: ‘🌡️’, text: ‘示相化石：特定環境の生物→当時の環境がわかる（サンゴ→暖かい浅い海）’ },
+{ icon: ‘🌋’, text: ‘火成岩：深成岩（花崗岩・閃緑岩）大粒 / 火山岩（玄武岩・流紋岩）小粒’ },
+{ icon: ‘📐’, text: ‘柱状図：離れた場所の地層を比べる。鍵層（火山灰層など）で対比する’ },
+]}
+},
+
+// ===== 6年生 =====
+{
+id: ‘g6_electricity’, grade: ‘g6’, name: ‘電流（詳細）’, emoji: ‘⚡’, color: ‘#fbbf24’,
+point: { items: [
+{ icon: ‘🔢’, text: ‘V=IR の使いこなし：直列→合成抵抗は足す。並列→逆数の和の逆数’ },
+{ icon: ‘💡’, text: ‘電力(W) = 電圧(V) × 電流(A)。電力量(Wh) = 電力 × 時間’ },
+{ icon: ‘🔥’, text: ‘発熱量：電力 × 時間（J = W × s）。抵抗が大きい方が発熱大’ },
+{ icon: ‘🏠’, text: ‘家庭の電気：交流100V。並列つなぎで独立に使える。アースで安全’ },
+{ icon: ‘⚡’, text: ‘電力の節約：LED化・待機電力の削減・断熱が効果的’ },
+]}
+},
+{
+id: ‘g6_chemistry’, grade: ‘g6’, name: ‘化学変化’, emoji: ‘🔥’, color: ‘#fb923c’,
+point: { items: [
+{ icon: ‘🔥’, text: ‘燃焼の条件：燃えるもの・酸素・発火点以上の温度（3つ全部必要）’ },
+{ icon: ‘🌬️’, text: ‘酸化：物質が酸素と化合する。鉄のサビ・燃焼はどちらも酸化’ },
+{ icon: ‘🧪’, text: ‘酸とアルカリ：酸（塩酸・酢酸）とアルカリ（水酸化ナトリウム）が反応’ },
+{ icon: ‘⚗️’, text: ‘中和：酸＋アルカリ→塩＋水。塩酸＋水酸化ナトリウム→食塩水’ },
+{ icon: ‘💧’, text: ‘指示薬：リトマス紙・BTB・フェノールフタレイン。pH7が中性’ },
+]}
+},
+{
+id: ‘g6_ions’, grade: ‘g6’, name: ‘水溶液とイオン’, emoji: ‘⚗️’, color: ‘#a78bfa’,
+point: { items: [
+{ icon: ‘⚡’, text: ‘電離：物質が水に溶けてイオンに分かれる（NaCl → Na⁺ + Cl⁻）’ },
+{ icon: ‘🔋’, text: ‘電気分解：電流で水溶液を分解。水→水素＋酸素’ },
+{ icon: ‘🌡️’, text: ‘pH：0〜14のスケール。7が中性・7未満が酸性・7超がアルカリ性’ },
+{ icon: ‘🧪’, text: ‘酸性の水溶液：塩酸・希硫酸・酢酸。金属を溶かしH₂が発生する’ },
+{ icon: ‘🔬’, text: ‘イオンと電気：陽イオン（+）は陰極へ。陰イオン（-）は陽極へ移動’ },
+]}
+},
+{
+id: ‘g6_stars’, grade: ‘g6’, name: ‘星と宇宙’, emoji: ‘🌌’, color: ‘#c4b5fd’,
+point: { items: [
+{ icon: ‘🌟’, text: ‘恒星：自ら光る（太陽・シリウス）/ 惑星：恒星の周りを公転（地球・木星）’ },
+{ icon: ‘🪐’, text: ‘太陽系の惑星8つ：水・金・地・火・木・土・天・海（水金地火木土天海）’ },
+{ icon: ‘⭐’, text: ‘星の動き：北の星は北極星を中心に反時計回り。東の空では左上へ’ },
+{ icon: ‘🌌’, text: ‘銀河：数千億の恒星の集まり。太陽系は天の川銀河の端の方にある’ },
+{ icon: ‘🔭’, text: ‘季節の星座：地球が公転するため見える星座が変わる（夏→さそり座など）’ },
+]}
+},
+{
+id: ‘g6_weather’, grade: ‘g6’, name: ‘気象と気候’, emoji: ‘🌀’, color: ‘#93c5fd’,
+point: { items: [
+{ icon: ‘🌀’, text: ‘低気圧：上昇気流→雲・雨。反時計回りの風（北半球）。天気悪化’ },
+{ icon: ‘☀️’, text: ‘高気圧：下降気流→晴れ。時計回りの風（北半球）。天気が安定’ },
+{ icon: ‘🌧️’, text: ‘温暖前線：おだやか・長雨 / 寒冷前線：激しい・短時間・雷雨’ },
+{ icon: ‘🗾’, text: ‘日本の気候：梅雨（6月）・台風（8〜9月）・偏西風で天気は西から東へ’ },
+{ icon: ‘💨’, text: ‘季節風：冬は北西から（シベリア高気圧）・夏は南東から（太平洋高気圧）’ },
+]}
+},
+{
+id: ‘g6_earthquake’, grade: ‘g6’, name: ‘地震と火山’, emoji: ‘🌋’, color: ‘#fca5a5’,
+point: { items: [
+{ icon: ‘🌍’, text: ‘プレートテクトニクス：地球表面は十数枚のプレートが動いている’ },
+{ icon: ‘💥’, text: ‘地震のしくみ：プレートのひずみが限界を超えて断層がずれる（震源）’ },
+{ icon: ‘📊’, text: ‘P波とS波：P波（速・縦波）が先着→初期微動。S波（遅・横波）→主要動’ },
+{ icon: ‘🌋’, text: ‘火山：マグマが地表に出たもの。溶岩・火山灰・火山ガスを噴出’ },
+{ icon: ‘🏔️’, text: ‘火山の形：盾状（ハワイ）傾斜ゆるい / 成層（富士山）/ 溶岩ドーム’ },
+]}
+},
+{
+id: ‘g6_evolution’, grade: ‘g6’, name: ‘生物の進化・遺伝’, emoji: ‘🧬’, color: ‘#6ee7b7’,
+point: { items: [
+{ icon: ‘🦕’, text: ‘進化の証拠：化石・相同器官（コウモリの翼と人の腕は同じ骨格）’ },
+{ icon: ‘🧬’, text: ‘遺伝：親の形質が子に伝わる。DNA（遺伝子）が情報を伝える’ },
+{ icon: ‘🟡’, text: ‘メンデルの法則：優性と劣性。エンドウ豆の実験（丸×しわ→丸が多い）’ },
+{ icon: ‘🦋’, text: ‘自然選択：環境に適した個体が生き残り・子孫を残す（ダーウィン）’ },
+{ icon: ‘🔬’, text: ‘細胞分裂：成長・再生に必要。体細胞分裂と減数分裂（生殖）がある’ },
+]}
+},
+{
+id: ‘g6_energy’, grade: ‘g6’, name: ‘エネルギー’, emoji: ‘♻️’, color: ‘#86efac’,
+point: { items: [
+{ icon: ‘♻️’, text: ‘エネルギー保存：運動・熱・光・電気など形は変わっても総量は同じ’ },
+{ icon: ‘⚡’, text: ‘エネルギー変換：発電所（化学→電気）モーター（電気→運動）など’ },
+{ icon: ‘🌞’, text: ‘再生可能エネルギー：太陽光・風力・水力・地熱。CO₂を出さない’ },
+{ icon: ‘🌡️’, text: ‘地球温暖化：CO₂などの温室効果ガスが増加→気温上昇’ },
+{ icon: ‘💡’, text: ‘エネルギー効率：実際に使える割合。白熱球<蛍光灯<LEDの順で高い’ },
+]}
+},
+{
+id: ‘g6_mechanics’, grade: ‘g6’, name: ‘力学総合’, emoji: ‘🔭’, color: ‘#fed7aa’,
+point: { items: [
+{ icon: ‘🌊’, text: ‘浮力の計算：浮力(N) = 水の密度(1g/cm³) × 水中の体積(cm³) × 0.01’ },
+{ icon: ‘⚖️’, text: ‘てこのつりあい：左の(力×距離) = 右の(力×距離)。支点を基準に計算’ },
+{ icon: ‘🔧’, text: ‘仕事：仕事(J) = 力(N) × 距離(m)。滑車や斜面でも仕事の量は同じ’ },
+{ icon: ‘🚀’, text: ‘仕事の原理：道具を使っても仕事の量は変わらない（力×距離が一定）’ },
+{ icon: ‘🎢’, text: ‘位置エネルギーと運動エネルギー：高いほど位置エネルギー大。落下で変換’ },
+]}
+},
+{
+id: ‘g6_review’, grade: ‘g6’, name: ‘総合問題’, emoji: ‘📝’, color: ‘#f0abfc’,
+point: { items: [
+{ icon: ‘🧪’, text: ‘実験考察：仮説→実験→結果→考察の流れ。対照実験の意味を理解する’ },
+{ icon: ‘📊’, text: ‘グラフ読み取り：比例・反比例・折れ線グラフから関係を読む’ },
+{ icon: ‘🔬’, text: ‘顕微鏡の使い方：低倍率→高倍率の順。ピントは鏡筒を遠ざけながら合わせる’ },
+{ icon: ‘📐’, text: ‘分野横断問題：植物の光合成と気象・地層と化石・てことエネルギーなど’ },
+{ icon: ‘✏️’, text: ‘記述問題：「なぜなら〜だから」の形で理由を書く練習をしよう’ },
+]}
+},
+];
+
+// =============================================
+//  問題データ（各単元 easy×5, normal×4, hard×3）
+// =============================================
+const QUESTIONS = [
+// —– g4_plants —–
+{ id:1,  unit:‘g4_plants’, level:‘easy’,   q:‘植物の発芽に必要な条件はどれ？’, choices:[‘光・水・温度’,‘水・温度・空気’,‘光・肥料・水’,‘空気・肥料・光’], answer:1, exp:‘発芽に必要なのは「水・適切な温度・空気」の3つ。光や肥料は発芽には不要だよ！’ },
+{ id:2,  unit:‘g4_plants’, level:‘easy’,   q:‘植物の葉が緑色なのはなぜ？’, choices:[‘水分が多いから’,‘葉緑体があるから’,‘空気を含むから’,‘根から色素が来るから’], answer:1, exp:‘葉には葉緑体があり、その中の緑色の色素（クロロフィル）が葉を緑に見せているよ！’ },
+{ id:3,  unit:‘g4_plants’, level:‘easy’,   q:‘根が水を吸い上げるとき、葉では何が起きている？’, choices:[‘光合成’,‘呼吸’,‘蒸散’,‘発芽’], answer:2, exp:‘葉の気孔から水蒸気が蒸散することで、根から水を吸い上げる力（引っ張り上げる力）が生まれるよ！’ },
+{ id:4,  unit:‘g4_plants’, level:‘easy’,   q:‘春に最初に咲く花として有名なのはどれ？’, choices:[‘ヒマワリ’,‘コスモス’,‘アブラナ（菜の花）’,‘アサガオ’], answer:2, exp:‘アブラナ（菜の花）は春の代表的な植物。桜と同じ時期に黄色い花を咲かせるよ！’ },
+{ id:5,  unit:‘g4_plants’, level:‘easy’,   q:‘植物が光を使ってデンプンをつくる働きは？’, choices:[‘呼吸’,‘蒸散’,‘光合成’,‘吸水’], answer:2, exp:‘光合成は葉が光エネルギーを使って二酸化炭素と水からデンプンをつくる働き！’ },
+{ id:6,  unit:‘g4_plants’, level:‘normal’, q:‘インゲンマメの発芽実験で、光を当てた種と暗所の種の結果は？’, choices:[‘光に当てた方が先に発芽’,‘暗所の方が先に発芽’,‘両方同じタイミングで発芽’,‘暗所の種は発芽しない’], answer:2, exp:‘発芽に光は関係ない！水・温度・空気が同じなら、明るさに関わらず同時に発芽するよ。’ },
+{ id:7,  unit:‘g4_plants’, level:‘normal’, q:‘植物の成長に必要で、発芽には不要なものは？’, choices:[‘水’,‘空気’,‘適切な温度’,‘光と肥料’], answer:3, exp:‘発芽には光・肥料は不要。でも成長するには光合成のための光と、栄養のための肥料が必要になるよ！’ },
+{ id:8,  unit:‘g4_plants’, level:‘normal’, q:‘デンプンの検出に使う試薬は？’, choices:[‘リトマス試験紙’,‘ヨウ素液’,‘BTB溶液’,‘フェノールフタレイン’], answer:1, exp:‘ヨウ素液（ヨウ素ヨウ化カリウム溶液）はデンプンと反応して青紫色に変わるよ！理科実験の基本！’ },
+{ id:9,  unit:‘g4_plants’, level:‘normal’, q:‘切り花を色水に差すと花びらが染まる。この現象を説明するものは？’, choices:[‘師管が水を運ぶ’,‘道管が水を運ぶ’,‘気孔が水を吸う’,‘根毛が水を吸う’], answer:1, exp:‘道管は根から水を葉・花へ運ぶ管。色水が道管を通って花びらまで届くから染まるよ！’ },
+{ id:10, unit:‘g4_plants’, level:‘hard’,   q:‘ホウセンカに赤い色水を吸わせて茎を輪切りにすると、どこが赤くなる？’, choices:[‘茎の中心部全体’,‘茎の外側の皮の部分’,‘茎の特定の管（道管）’,‘茎全体が均一に赤くなる’], answer:2, exp:‘道管は茎の中に束になって分布している。色水がその道管だけを通るので、切り口の特定の管が赤く染まるよ！’ },
+{ id:11, unit:‘g4_plants’, level:‘hard’,   q:‘植物が夜間に行う呼吸について正しいのは？’, choices:[‘昼だけ呼吸する’,‘夜だけ呼吸する’,‘昼夜関係なく呼吸する’,‘光合成と同時にしか呼吸しない’], answer:2, exp:‘植物は昼も夜も常に呼吸している。昼は光合成の方が呼吸より活発なので、見た目は酸素を出しているように見えるよ！’ },
+{ id:12, unit:‘g4_plants’, level:‘hard’,   q:‘双子葉植物と単子葉植物の根の違いは？’, choices:[‘双子葉→ひげ根・単子葉→主根と側根’,‘双子葉→主根と側根・単子葉→ひげ根’,‘両方ともひげ根’,‘両方とも主根と側根’], answer:1, exp:‘双子葉植物（アサガオ・ホウセンカ）は主根から側根が出る。単子葉植物（イネ・トウモロコシ）はひげ根！’ },
+
+// —– g4_animals —–
+{ id:13, unit:‘g4_animals’, level:‘easy’,   q:‘完全変態をする昆虫はどれ？’, choices:[‘バッタ’,‘トンボ’,‘チョウ’,‘セミ’], answer:2, exp:‘チョウは卵→幼虫→さなぎ→成虫と変態する「完全変態」の昆虫。バッタ・トンボ・セミは「不完全変態」だよ！’ },
+{ id:14, unit:‘g4_animals’, level:‘easy’,   q:‘昆虫の体の特徴として正しいのは？’, choices:[‘足が8本’,‘体が2つに分かれる’,‘足が6本・体が3つに分かれる’,‘背骨がある’], answer:2, exp:‘昆虫は体が「頭・胸・腹」の3つに分かれ、足は6本。触角は2本！この3つを覚えよう！’ },
+{ id:15, unit:‘g4_animals’, level:‘easy’,   q:‘魚が呼吸に使う器官は？’, choices:[‘肺’,‘えら’,‘皮膚’,‘気管’], answer:1, exp:‘魚はえら呼吸。水中の酸素をえらで取り込む。カエルの幼生（おたまじゃくし）もえら呼吸だよ！’ },
+{ id:16, unit:‘g4_animals’, level:‘easy’,   q:‘冬眠する動物として正しいのは？’, choices:[‘イルカ’,‘ペンギン’,‘クマ’,‘スズメ’], answer:2, exp:‘クマ・カエル・ヘビ・コウモリなどが冬眠する。体温を下げてエネルギーを節約して冬を越すよ！’ },
+{ id:17, unit:‘g4_animals’, level:‘easy’,   q:‘渡り鳥として日本の夏に見られるのはどれ？’, choices:[‘ハクチョウ’,‘ツバメ’,‘マガモ’,‘ツル’], answer:1, exp:‘ツバメは春に東南アジアから来て夏を過ごし、秋に南へ帰る渡り鳥。ハクチョウは冬に来るよ！’ },
+{ id:18, unit:‘g4_animals’, level:‘normal’, q:‘不完全変態の昆虫はどれ？’, choices:[‘カブトムシ’,‘ハチ’,‘アリ’,‘バッタ’], answer:3, exp:‘バッタ・トンボ・セミ・ゴキブリは不完全変態（さなぎの時期なし）。カブトムシ・ハチ・アリは完全変態！’ },
+{ id:19, unit:‘g4_animals’, level:‘normal’, q:‘鳥類の特徴として正しいのは？’, choices:[‘変温動物・えら呼吸’,‘恒温動物・肺呼吸・卵生’,‘変温動物・肺呼吸・胎生’,‘恒温動物・えら呼吸・卵生’], answer:1, exp:‘鳥類は恒温動物（体温一定）・肺呼吸・卵生・背骨あり・羽毛がある。飛べない鳥（ペンギンなど）も鳥類！’ },
+{ id:20, unit:‘g4_animals’, level:‘normal’, q:‘クモは昆虫か？その理由は？’, choices:[‘昆虫・足が8本’,‘昆虫ではない・足が8本’,‘昆虫・体が2つに分かれる’,‘昆虫ではない・背骨がある’], answer:1, exp:‘クモは足が8本・体が頭胸部と腹部の2つ。昆虫は足6本・体3つ。クモは昆虫ではなく、クモ類！’ },
+{ id:21, unit:‘g4_animals’, level:‘normal’, q:‘両生類が成体になったとき、幼生と異なる点は？’, choices:[‘水中でしか生きられなくなる’,‘えら呼吸に変わる’,‘陸上で生活し肺と皮膚で呼吸する’,‘変温動物でなくなる’], answer:2, exp:‘カエルの成体は肺呼吸＋皮膚呼吸で陸上生活できるよ。幼生（おたまじゃくし）はえら呼吸で水中生活！’ },
+{ id:22, unit:‘g4_animals’, level:‘hard’,   q:‘ザリガニはどの動物グループに属する？’, choices:[‘昆虫類’,‘クモ類’,‘甲殻類’,‘軟体動物’], answer:2, exp:‘ザリガニは甲殻類。エビ・カニと同じ仲間。外骨格・多くの足がある。昆虫・クモとは異なるよ！’ },
+{ id:23, unit:‘g4_animals’, level:‘hard’,   q:‘イカ・タコが属するグループは？’, choices:[‘甲殻類’,‘軟体動物’,‘脊椎動物’,‘環形動物’], answer:1, exp:‘イカ・タコ・貝は軟体動物。柔らかい体・内臓を覆う外套膜が特徴。背骨はないが高い知能を持つよ！’ },
+{ id:24, unit:‘g4_animals’, level:‘hard’,   q:‘食物連鎖で生産者と呼ばれるのは？’, choices:[‘草食動物’,‘肉食動物’,‘植物’,‘分解者（菌類・細菌）’], answer:2, exp:‘植物は光合成でエネルギーを生産するから「生産者」。草食・肉食動物は「消費者」。菌類は「分解者」！’ },
+
+// —– g4_body —–
+{ id:25, unit:‘g4_body’, level:‘easy’,   q:‘食べ物から栄養を吸収する主な器官は？’, choices:[‘胃’,‘大腸’,‘小腸’,‘肝臓’], answer:2, exp:‘小腸の内壁には細かいひだ（絨毛）があって表面積が大きく、栄養をしっかり吸収できるよ！’ },
+{ id:26, unit:‘g4_body’, level:‘easy’,   q:‘血液を全身に送るポンプの役割をする器官は？’, choices:[‘肺’,‘腎臓’,‘心臓’,‘肝臓’], answer:2, exp:‘心臓は筋肉でできたポンプ。収縮して血液を押し出し、全身に酸素と栄養を届けるよ！’ },
+{ id:27, unit:‘g4_body’, level:‘easy’,   q:‘呼吸で体内に取り込む気体は？’, choices:[‘二酸化炭素’,‘窒素’,‘酸素’,‘水蒸気’], answer:2, exp:‘息を吸うとき酸素を取り込み、吐くとき二酸化炭素を出す。酸素は細胞でエネルギーをつくるのに使うよ！’ },
+{ id:28, unit:‘g4_body’, level:‘easy’,   q:‘肺の小さな袋状の構造（ガス交換の場所）の名前は？’, choices:[‘腎小体’,‘肺胞’,‘気管支’,‘胸膜’], answer:1, exp:‘肺胞は直径0.2mmほどの小さな袋。数億個あって表面積がとても大きく、効率よくガス交換できるよ！’ },
+{ id:29, unit:‘g4_body’, level:‘easy’,   q:‘ヨウ素液を使うと青紫色になる栄養素は？’, choices:[‘タンパク質’,‘脂肪’,‘デンプン’,‘ビタミン’], answer:2, exp:‘デンプンにヨウ素液をかけると青紫色に変わる！この反応でご飯・パン・イモにデンプンが含まれることがわかるよ。’ },
+{ id:30, unit:‘g4_body’, level:‘normal’, q:‘心臓から出た血液が全身を回って戻ってくる経路を何という？’, choices:[‘肺循環’,‘体循環’,‘冠循環’,‘門脈循環’], answer:1, exp:‘心臓→全身→心臓の経路が「体循環」。心臓→肺→心臓が「肺循環」。2つの循環で体を流れているよ！’ },
+{ id:31, unit:‘g4_body’, level:‘normal’, q:‘だ液に含まれてデンプンを分解する消化酵素は？’, choices:[‘ペプシン’,‘リパーゼ’,‘アミラーゼ’,‘トリプシン’], answer:2, exp:‘だ液アミラーゼがデンプンを麦芽糖に分解する。よく噛むとご飯が甘くなるのはこのため！’ },
+{ id:32, unit:‘g4_body’, level:‘normal’, q:‘血液の成分で、酸素を運ぶのはどれ？’, choices:[‘白血球’,‘血小板’,‘血漿’,‘赤血球’], answer:3, exp:‘赤血球にはヘモグロビンという赤い色素があり、肺で酸素と結合して全身に届けるよ！’ },
+{ id:33, unit:‘g4_body’, level:‘normal’, q:‘タンパク質を消化する胃の消化液に含まれる酵素は？’, choices:[‘アミラーゼ’,‘リパーゼ’,‘ペプシン’,‘マルターゼ’], answer:2, exp:‘胃液に含まれるペプシンがタンパク質を分解する。胃液は強い酸性（塩酸を含む）でペプシンが働く！’ },
+{ id:34, unit:‘g4_body’, level:‘hard’,   q:‘小腸でブドウ糖を吸収した後、最初に運ばれる器官は？’, choices:[‘心臓’,‘肺’,‘肝臓’,‘腎臓’], answer:2, exp:‘小腸で吸収したブドウ糖は門脈を通って肝臓へ運ばれ、グリコーゲンとして蓄えられたり血糖として調節されるよ！’ },
+{ id:35, unit:‘g4_body’, level:‘hard’,   q:‘腎臓のはたらきとして正しいのは？’, choices:[‘血液を全身に送る’,‘空気から酸素を取り込む’,‘血液から不要物をこして尿をつくる’,‘食べ物を消化する’], answer:2, exp:‘腎臓は血液をろ過して老廃物（尿素など）を尿として取り除くよ。1日に約150Lもの血液をろ過する！’ },
+{ id:36, unit:‘g4_body’, level:‘hard’,   q:‘反射（はんしゃ）が速い理由として正しいのは？’, choices:[‘脳が素早く判断するから’,‘せきずいで処理されるから’,‘筋肉が自動的に動くから’,‘感覚器官が過敏だから’], answer:1, exp:‘反射は脳を通らずせきずいで直接処理されるため速い！熱いものを触ったとき手を引く、など。’ },
+
+// —– g4_weather —–
+{ id:37, unit:‘g4_weather’, level:‘easy’,   q:‘気温を正しく測る方法はどれ？’, choices:[‘直射日光の当たる場所で測る’,‘日陰・地上1.2〜1.5mの高さで測る’,‘地面に置いた温度計で測る’,‘雨の日は室内で測る’], answer:1, exp:‘気温は日陰・風通しの良い場所・地上1.2〜1.5mの高さで測る。直射日光は温度計を温めてしまうよ！’ },
+{ id:38, unit:‘g4_weather’, level:‘easy’,   q:‘入道雲（積乱雲）が発達したとき、予想される天気は？’, choices:[‘穏やかな晴れ’,‘霧雨’,‘雷雨・にわか雨’,‘雪’], answer:2, exp:‘積乱雲（入道雲）は激しい上昇気流で発達する雲。雷雨や激しいにわか雨の原因になるよ！’ },
+{ id:39, unit:‘g4_weather’, level:‘easy’,   q:‘虹はどのような条件でできる？’, choices:[‘太陽と同じ方向・晴れのとき’,‘太陽の反対側・雨上がり’,‘曇り空・雨降り中’,‘夜間・月明かりのとき’], answer:1, exp:‘虹は太陽の反対側の空に、雨粒が光を屈折・反射して色を分けることでできるよ！’ },
+{ id:40, unit:‘g4_weather’, level:‘easy’,   q:‘雲がないとき（快晴）の夜は気温がどうなりやすい？’, choices:[‘高くなる’,‘変わらない’,‘低くなりやすい（放射冷却）’,‘関係ない’], answer:2, exp:‘雲がないと地面から放射された熱が宇宙へ逃げやすく、夜間に気温が下がりやすい（放射冷却）！’ },
+{ id:41, unit:‘g4_weather’, level:‘easy’,   q:‘日本の天気は一般的にどの方向から変化する？’, choices:[‘東から西へ’,‘北から南へ’,‘西から東へ’,‘南から北へ’], answer:2, exp:‘偏西風の影響で、日本では天気は西から東へ移動するよ。明日の天気を予測するヒントになる！’ },
+{ id:42, unit:‘g4_weather’, level:‘normal’, q:‘霧（きり）はどのようにしてできる？’, choices:[‘地面が急速に温まるとき’,‘地面近くの空気が冷やされて水蒸気が水滴になるとき’,‘強い風で砂が舞い上がるとき’,‘海から塩分が飛んでくるとき’], answer:1, exp:‘霧は地面近くの空気が冷えて露点以下になり、水蒸気が細かい水滴になって浮かんでいる現象だよ！’ },
+{ id:43, unit:‘g4_weather’, level:‘normal’, q:‘天気予報で低気圧が近づくと予報されたら？’, choices:[‘晴れが続くと考える’,‘雨や曇りになると考える’,‘強風だが晴れと考える’,‘関係ない’], answer:1, exp:‘低気圧は上昇気流→雲が発達→雨や曇りになりやすい。「低気圧＝悪天候」と覚えよう！’ },
+{ id:44, unit:‘g4_weather’, level:‘normal’, q:‘雨の降り方の「しとしと降る雨」と「ざあざあ降る雨」を生む雲の種類は？’, choices:[‘積乱雲と積雲’,‘乱層雲と積乱雲’,‘巻雲と積雲’,‘層雲と乱層雲’], answer:1, exp:‘乱層雲（雨雲）はしとしとした長雨。積乱雲（入道雲）はざあざあ激しい雷雨。雲の形で雨の種類がわかるよ！’ },
+{ id:45, unit:‘g4_weather’, level:‘hard’,   q:‘露点とは何か？’, choices:[‘雨が降り始める気温’,‘空気中の水蒸気が水滴になり始める温度’,‘最も高い気温’,‘海面の水温’], answer:1, exp:‘露点は空気を冷やしたとき水蒸気が凝結して水滴になる温度。露点に達するとコップの外側が曇るよ！’ },
+{ id:46, unit:‘g4_weather’, level:‘hard’,   q:‘季節によって日の出・日の入りの位置が変わる理由は？’, choices:[‘地球の公転と地軸の傾きのため’,‘月の引力の影響’,‘太陽の自転のため’,‘大気の状態のため’], answer:0, exp:‘地球が地軸を傾けたまま太陽の周りを公転するから、季節によって日の出・日の入りの方向が変わるよ！’ },
+{ id:47, unit:‘g4_weather’, level:‘hard’,   q:’「天気が西から東へ変わる」のに最も関係が深いのは？’, choices:[‘海流（暖流・寒流）’,‘偏西風’,‘モンスーン’,‘コリオリの力’], answer:1, exp:‘偏西風（上空を吹く西からの風）が雲や低気圧を西から東へ運ぶ。日本の天気変化の主な原因だよ！’ },
+
+// —– g4_electricity1 —–
+{ id:48, unit:‘g4_electricity1’, level:‘easy’,   q:‘電気を通す物質（導体）はどれ？’, choices:[‘ガラス’,‘銅（あかがね）’,‘木’,‘プラスチック’], answer:1, exp:‘銅などの金属は自由電子を持つため電気を通す導体。ガラス・木・プラスチックは電気を通さない絶縁体！’ },
+{ id:49, unit:‘g4_electricity1’, level:‘easy’,   q:‘直列つなぎの豆電球が1つ切れると？’, choices:[‘残りが明るくなる’,‘残りも消える’,‘回路は変わらず残りは点灯する’,‘電流が逆向きになる’], answer:1, exp:‘直列は1本の道しかないから、1つ切れると電流が流れなくなって全部消える！並列なら残りは点くよ。’ },
+{ id:50, unit:‘g4_electricity1’, level:‘easy’,   q:‘電池の直列つなぎをすると、電球の明るさはどうなる？’, choices:[‘変わらない’,‘暗くなる’,‘明るくなる’,‘消える’], answer:2, exp:‘電池を直列につなぐと電圧が増えて電流が大きくなるから、電球が明るくなるよ！’ },
+{ id:51, unit:‘g4_electricity1’, level:‘easy’,   q:‘回路図でスイッチを「開く」とはどういう意味？’, choices:[‘電流を流す’,‘電流を止める’,‘電球を外す’,‘電池を逆につける’], answer:1, exp:‘スイッチを開く（OFF）と回路が切れて電流が流れなくなる。閉じる（ON）で電流が流れるよ！’ },
+{ id:52, unit:‘g4_electricity1’, level:‘easy’,   q:‘電流の向きは電池のどこからどこへ流れる？’, choices:[‘−極から出て＋極へ’,‘＋極から出て−極へ’,‘向きは関係ない’,‘交互に向きが変わる’], answer:1, exp:‘電流は＋極から出て外部の回路を通り−極へ戻る（電子は逆向きに動く）。これが電流の向き！’ },
+{ id:53, unit:‘g4_electricity1’, level:‘normal’, q:‘乾電池の並列つなぎの特徴は？’, choices:[‘電圧が増えて明るくなる’,‘明るさは同じで長持ちする’,‘暗くなるが長持ちする’,‘明るさが2倍になる’], answer:1, exp:‘並列つなぎは電圧が変わらないから明るさは同じ。でも2つの電池から電流が供給されるから長持ちするよ！’ },
+{ id:54, unit:‘g4_electricity1’, level:‘normal’, q:‘並列回路の豆電球が1つ切れたとき、残りは？’, choices:[‘全部消える’,‘残りは変わらず点灯する’,‘残りが暗くなる’,‘残りが明るくなる’], answer:1, exp:‘並列回路は電球ごとに独立した道がある。1つ切れても他の電球は別の道で電流が流れるから点いたまま！’ },
+{ id:55, unit:‘g4_electricity1’, level:‘normal’, q:‘電熱線（ニクロム線）に電流を流すと？’, choices:[‘光るだけ’,‘熱くなる’,‘冷たくなる’,‘磁石になる’], answer:1, exp:‘電熱線は電気抵抗が大きいので電流が流れると熱が発生する。電気ストーブやトースターの原理だよ！’ },
+{ id:56, unit:‘g4_electricity1’, level:‘normal’, q:‘電流計で電流を測るとき、回路へのつなぎ方は？’, choices:[‘並列につなぐ’,‘直列につなぐ’,‘どちらでも良い’,‘電池の代わりにつなぐ’], answer:1, exp:‘電流計は測りたい場所に直列につなぐ。電圧計は並列。この違いを必ず覚えよう！’ },
+{ id:57, unit:‘g4_electricity1’, level:‘hard’,   q:‘同じ乾電池2本で豆電球1つを使うとき、直列と並列ではどう違う？’, choices:[‘直列の方が明るい・電池が早く切れる’,‘並列の方が明るい・電池が長持ち’,‘直列の方が明るい・電池が長持ち’,‘両方同じ明るさ・同じ寿命’], answer:0, exp:‘直列は電圧2倍→明るい→電流大→電池消費早い。並列は電圧同じ→明るさ同じ→各電池の負担半分→長持ち！’ },
+{ id:58, unit:‘g4_electricity1’, level:‘hard’,   q:‘電磁石の力を強くするにはどうすればよいか（2つ正しいものを含む選択肢）？’, choices:[‘コイルの巻き数を増やす・電流を弱くする’,‘コイルの巻き数を減らす・電流を強くする’,‘コイルの巻き数を増やす・電流を強くする’,‘芯を木にする・電流を強くする’], answer:2, exp:‘電磁石を強くするには①コイルの巻き数を増やす ②電流を強くする ③鉄芯を太くする の3つが有効！’ },
+{ id:59, unit:‘g4_electricity1’, level:‘hard’,   q:‘電流が流れているコイルは何のような性質をもつ？’, choices:[‘熱を発生させるだけ’,‘磁石と同じ性質をもつ’,‘光を出す’,‘重力を変える’], answer:1, exp:‘コイルに電流を流すと両端にN極とS極ができ、磁石と同じ性質になる（電磁石）。電気を切ると磁力も消えるよ！’ },
+
+// —– g5_plants —–
+{ id:60, unit:‘g5_plants’, level:‘easy’,   q:‘受粉とはどういうこと？’, choices:[‘花びらが開くこと’,‘おしべの花粉がめしべの柱頭につくこと’,‘種が土に落ちること’,‘芽が出ること’], answer:1, exp:‘受粉はおしべの花粉がめしべの柱頭に付くこと。受粉後に種子と果実がつくられるよ！’ },
+{ id:61, unit:‘g5_plants’, level:‘easy’,   q:‘タンポポの種子はどのように散布される？’, choices:[‘水に流されて’,‘動物の毛にくっついて’,‘綿毛で風に乗って’,‘弾き飛ばされて’], answer:2, exp:‘タンポポの綿毛は冠毛（かんもう）と呼ばれ、風で遠くへ飛んでいく風散布の代表例！’ },
+{ id:62, unit:‘g5_plants’, level:‘easy’,   q:‘単子葉植物の葉脈の特徴は？’, choices:[‘網目状（網状脈）’,‘平行（平行脈）’,‘羽状’,‘扇状’], answer:1, exp:‘イネ・トウモロコシ・ユリなどの単子葉植物は葉脈が平行。双子葉植物は網目状（網状脈）だよ！’ },
+{ id:63, unit:‘g5_plants’, level:‘easy’,   q:‘花粉を風で運ぶ植物（風媒花）はどれ？’, choices:[‘ヒマワリ’,‘スミレ’,‘イネ・マツ’,‘チューリップ’], answer:2, exp:‘イネ・マツ・スギは風で花粉を運ぶ風媒花。花が目立たない・花粉が軽くて多い。花粉症の原因にも！’ },
+{ id:64, unit:‘g5_plants’, level:‘easy’,   q:‘胚珠が子房に包まれている植物のグループは？’, choices:[‘裸子植物’,‘シダ植物’,‘被子植物’,‘コケ植物’], answer:2, exp:‘被子植物は胚珠が子房に包まれている（アブラナ・ツツジなど）。裸子植物は胚珠がむき出し（マツ・スギ）！’ },
+{ id:65, unit:‘g5_plants’, level:‘normal’, q:‘気孔が主に開くのはいつ？’, choices:[‘夜間（光がないとき）’,‘昼間（光があるとき）’,‘乾燥したとき’,‘寒いとき’], answer:1, exp:‘気孔は昼間に開いて二酸化炭素を取り込み、水蒸気を出す（蒸散）。夜や乾燥時には閉じることが多いよ！’ },
+{ id:66, unit:‘g5_plants’, level:‘normal’, q:‘花のつくりで受粉後に果実になるのは？’, choices:[‘がく’,‘花びら’,‘おしべ’,‘子房（を含む部分）’], answer:3, exp:‘受粉後、子房が果実に、胚珠が種子になる。トマトの赤い部分（子房の壁）もリンゴの食べる部分も果実！’ },
+{ id:67, unit:‘g5_plants’, level:‘normal’, q:‘コケ植物・シダ植物・種子植物の違いを表す特徴の組み合わせで正しいのは？’, choices:[‘コケ→種子・シダ→胞子・種子→胞子’,‘コケ→胞子（維管束なし）・シダ→胞子（維管束あり）・種子→種子’,‘すべて胞子で繁殖’,‘すべて種子で繁殖’], answer:1, exp:‘コケは胞子・維管束なし。シダは胞子・維管束あり。種子植物は種子で繁殖。この3段階が重要！’ },
+{ id:68, unit:‘g5_plants’, level:‘normal’, q:‘蒸散が最も活発なのはどのような条件？’, choices:[‘気温が低く・湿度が高い’,‘気温が高く・湿度が低い・風が強い’,‘雨が降っているとき’,‘夜間で光がないとき’], answer:1, exp:‘蒸散は気温↑・湿度↓・風↑・光↑の条件で活発になる。乾いた暑い日に葉がたくさん水を出すイメージ！’ },
+{ id:69, unit:‘g5_plants’, level:‘hard’,   q:‘光合成の化学反応式として正しいのは？’, choices:[‘CO₂＋O₂→H₂O＋エネルギー’,‘CO₂＋H₂O→有機物＋O₂（光エネルギーを使って）’,‘H₂O→H₂＋O₂’,‘有機物→CO₂＋H₂O’], answer:1, exp:‘光合成：CO₂＋H₂O →（光エネルギー）→ 有機物（ブドウ糖）＋O₂。入試頻出！化学式も確認しよう！’ },
+{ id:70, unit:‘g5_plants’, level:‘hard’,   q:‘双子葉植物と単子葉植物の茎の断面の違いは？’, choices:[‘双子葉→維管束が散在・単子葉→輪状に並ぶ’,‘双子葉→維管束が輪状・単子葉→散在’,‘両方とも輪状’,‘両方とも散在’], answer:1, exp:‘双子葉植物の維管束は輪状に並ぶ（成長輪ができる）。単子葉植物（イネなど）は維管束がバラバラに散在！’ },
+{ id:71, unit:‘g5_plants’, level:‘hard’,   q:‘葉でつくられたデンプンはどの形で茎を通って運ばれる？’, choices:[‘デンプンのまま道管を通る’,‘ショ糖（スクロース）として師管を通る’,‘ブドウ糖として道管を通る’,‘アミノ酸として師管を通る’], answer:1, exp:‘デンプンはショ糖（スクロース）に変換されて師管を通って植物全体に運ばれる。道管は水・無機塩類専用！’ },
+
+// —– g5_celestial —–
+{ id:72, unit:‘g5_celestial’, level:‘easy’,   q:‘月の満ち欠けの周期はおよそ何日？’, choices:[‘7日’,‘14日’,‘29.5日’,‘365日’], answer:2, exp:‘月の満ち欠けは約29.5日周期。新月→上弦の月→満月→下弦の月→新月と変化するよ！’ },
+{ id:73, unit:‘g5_celestial’, level:‘easy’,   q:‘太陽が東から西へ動いて見えるのはなぜ？’, choices:[‘太陽が地球の周りを回っているから’,‘地球が自転しているから’,‘月が太陽を動かすから’,‘地球が公転しているから’], answer:1, exp:‘地球が西から東へ自転しているから、太陽が反対の東から西へ動いて見える。1日1回転（約24時間）！’ },
+{ id:74, unit:‘g5_celestial’, level:‘easy’,   q:‘日食が起きる条件は？’, choices:[‘満月のとき地球の影に月が入る’,‘新月のとき月が太陽と地球の間に入る’,‘満月のとき月が太陽の前を通る’,‘新月のとき地球が月と太陽の間に入る’], answer:1, exp:‘日食は月が太陽を隠すとき。新月で月・太陽・地球がほぼ一直線に並ぶと起きるよ！’ },
+{ id:75, unit:‘g5_celestial’, level:‘easy’,   q:‘月食が起きる条件は？’, choices:[‘新月のとき月が太陽の前を通る’,‘満月のとき地球の影に月が入る’,‘新月のとき地球の影に月が入る’,‘半月のとき月が地球の影に入る’], answer:1, exp:‘月食は地球の影に満月が入るとき。満月で太陽・地球・月がほぼ一直線に並ぶと起きるよ！’ },
+{ id:76, unit:‘g5_celestial’, level:‘easy’,   q:‘地球が太陽の周りを1周するのに何日かかる？’, choices:[‘約30日’,‘約365日’,‘約29.5日’,‘約24時間’], answer:1, exp:‘地球は約365日（1年）かけて太陽の周りを公転する。これが季節の変化・見える星座が変わる原因！’ },
+{ id:77, unit:‘g5_celestial’, level:‘normal’, q:‘満月から次の満月まで約29.5日かかる理由は？’, choices:[‘月の自転周期が29.5日’,‘月の公転周期（約27.3日）に地球の公転が加わるため’,‘地球の自転が関係する’,‘太陽の引力が変化するため’], answer:1, exp:‘月の公転は約27.3日だが、地球も太陽を公転しているので、満月→満月は約29.5日かかる（朔望月）！’ },
+{ id:78, unit:‘g5_celestial’, level:‘normal’, q:‘日本で夏に見やすい星座（夏の大三角に含まれるもの）は？’, choices:[‘オリオン座’,‘はくちょう座・わし座・こと座’,‘おおぐま座・こぐま座’,‘さそり座・いて座・てんびん座’], answer:1, exp:‘夏の大三角：はくちょう座のデネブ・わし座のアルタイル・こと座のベガでつくる三角形だよ！’ },
+{ id:79, unit:‘g5_celestial’, level:‘normal’, q:‘北極星がほぼ動かないのはなぜ？’, choices:[‘地球から最も遠い星だから’,‘地球の自転軸の延長線上にあるから’,‘最も明るい星だから’,‘月との位置関係が固定されているから’], answer:1, exp:‘北極星は地球の自転軸（北極点の真上）のほぼ延長線上にあるから、地球が自転しても動いて見えない！’ },
+{ id:80, unit:‘g5_celestial’, level:‘hard’,   q:‘月が地球を公転しているとき、月は地球にいつも同じ面を向けている理由は？’, choices:[‘月は自転していないから’,‘月の自転周期と公転周期が同じだから’,‘地球の引力が強すぎて回れないから’,‘月が球体でないから’], answer:1, exp:‘月の自転周期≒公転周期（約27.3日）。だから地球からはいつも同じ面（表側）しか見えない！’ },
+{ id:81, unit:‘g5_celestial’, level:‘hard’,   q:‘季節によって見える星座が変わるのはなぜ？’, choices:[‘星座の星が移動するから’,‘地球が公転して太陽の反対側の星座しか夜に見えないため’,‘太陽が季節によって位置を変えるから’,‘月の満ち欠けの影響’], answer:1, exp:‘地球が公転すると夜に太陽の反対側（深夜に南中する方向）が変わるので、季節ごとに見える星座が変わる！’ },
+{ id:82, unit:‘g5_celestial’, level:‘hard’,   q:‘皆既月食のとき、月が真っ暗にならず赤く見える理由は？’, choices:[‘月自身が赤く光るから’,‘地球の大気で屈折した赤い光が月に当たるから’,‘太陽の赤い光が直接当たるから’,‘地球の影が赤いから’], answer:1, exp:‘地球大気を通った太陽光は青い波長が散乱され、赤い波長だけが月に届く（夕焼けと同じ原理）。これで月が赤く見える！’ },
+
+// —– g5_force —–
+{ id:83, unit:‘g5_force’, level:‘easy’,   q:‘てこが「つりあう」条件は？’, choices:[‘左右の重さが同じ’,‘左右の（力×距離）が等しい’,‘支点が真ん中にある’,‘腕の長さが同じ’], answer:1, exp:‘てこのつりあいの原理：左の力×距離＝右の力×距離。支点からの距離が大事！’ },
+{ id:84, unit:‘g5_force’, level:‘easy’,   q:‘動滑車を1つ使うと、力はどうなる？’, choices:[‘力が2倍必要’,‘力が半分で済む（ひもを引く距離は2倍）’,‘力も距離も変わらない’,‘力も距離も半分になる’], answer:1, exp:‘動滑車は力を半分にできる代わりに、引く距離が2倍必要。仕事の量（力×距離）は変わらない！’ },
+{ id:85, unit:‘g5_force’, level:‘easy’,   q:‘水中の物体に働く浮力はどのように決まる？’, choices:[‘物体の重さで決まる’,‘物体が押しのけた液体の重さで決まる’,‘物体の大きさで決まる’,‘液体の温度で決まる’], answer:1, exp:‘浮力＝物体が押しのけた液体の体積×液体の密度×重力加速度。水なら1cm³につき約0.01Nだよ！’ },
+{ id:86, unit:‘g5_force’, level:‘easy’,   q:‘速さの単位「m/s（メートル毎秒）」の意味は？’, choices:[‘1秒間に進むメートル数’,‘1分間に進むメートル数’,‘1時間に進むメートル数’,‘1メートル進むのにかかる秒数’], answer:0, exp:‘m/sは「1秒あたりに進む距離（メートル）」を表す速さの単位。速さ＝距離÷時間で求められるよ！’ },
+{ id:87, unit:‘g5_force’, level:‘easy’,   q:‘仕事の量（J:ジュール）の計算式は？’, choices:[‘仕事＝力（N）＋距離（m）’,‘仕事＝力（N）×距離（m）’,‘仕事＝力（N）÷距離（m）’,‘仕事＝力（N）×時間（s）’], answer:1, exp:‘仕事（J）＝力（N）×距離（m）。10Nの力で2m動かすと20Jの仕事。方向が大切で、直角方向の力は仕事をしない！’ },
+{ id:88, unit:‘g5_force’, level:‘normal’, q:‘てこの「力点・支点・作用点」の位置関係で、最も小さい力で重いものを持ち上げられる配置は？’, choices:[‘支点を力点に近づける’,‘力点を支点に近づける・作用点を支点から遠ざける’,‘支点を作用点と力点の中間に置く’,‘力点と作用点を同じ位置にする’], answer:0, exp:‘力点を支点から遠ざける（力点と支点の距離大）ほど小さい力でOK！作用点は支点に近いほど有利だよ。’ },
+{ id:89, unit:‘g5_force’, level:‘normal’, q:‘密度が水（1g/cm³）より小さい物体を水に入れると？’, choices:[‘沈む’,‘浮く’,‘水の表面にだけ留まる’,‘密度と浮き沈みは関係ない’], answer:1, exp:‘密度が水より小さい（軽い）ものは水に浮く。木・氷（0.9g/cm³）は浮く。鉄（7.87g/cm³）は沈む！’ },
+{ id:90, unit:‘g5_force’, level:‘normal’, q:‘斜面を使ってものを持ち上げるとき、仕事の量は？’, choices:[‘斜面なしより大きくなる’,‘斜面なしより小さくなる’,‘斜面なしと同じ’,‘斜面の角度による’], answer:2, exp:‘仕事の原理：道具（斜面・滑車・てこ）を使っても仕事の総量は変わらない。力が小さくなる分、距離が長くなるよ！’ },
+{ id:91, unit:‘g5_force’, level:‘normal’, q:’「慣性」とは何か？’, choices:[‘物体が磁力を持つ性質’,‘物体が運動状態を保ち続けようとする性質’,‘物体が熱を持つ性質’,‘物体が電気を帯びる性質’], answer:1, exp:‘慣性：動いている物体は動き続け、静止している物体は静止し続けようとする性質。急ブレーキで体が前に傾くのがそれ！’ },
+{ id:92, unit:‘g5_force’, level:‘hard’,   q:‘支点から左に30cm・重さ200gのおもりと、右に50cmの場所につりあわせるには何gのおもりが必要？’, choices:[‘100g’,‘120g’,‘150g’,‘200g’], answer:1, exp:‘左：200×30＝6000。右：□×50＝6000。□＝120g。てこのつりあいは（力×距離）が等しくなるよ！’ },
+{ id:93, unit:‘g5_force’, level:‘hard’,   q:‘100cm³の物体を水に完全に沈めたとき、水から受ける浮力は何N？（水の密度1g/cm³）’, choices:[‘0.1N’,‘0.5N’,‘1N’,‘10N’], answer:2, exp:‘浮力＝押しのけた水の重さ＝100cm³×1g/cm³＝100g＝1N。この計算パターンを覚えよう！’ },
+{ id:94, unit:‘g5_force’, level:‘hard’,   q:‘仕事の原理で「動滑車1つを使って10kgの荷物を2m持ち上げる仕事量」は？’, choices:[‘50J’,‘100J’,‘196J’,‘392J’], answer:2, exp:‘仕事量＝力×距離。10kg→約100N。動滑車で力は50Nで済むが距離が4m必要。50N×4m＝200J≒100N×2m＝200J（約196J）’ },
+
+// —– g5_electricity —–
+{ id:95, unit:‘g5_electricity’, level:‘easy’,   q:‘オームの法則の式はどれ？’, choices:[‘V=I+R’,‘V=I×R’,‘V=I÷R’,‘I=V×R’], answer:1, exp:‘V（電圧）＝I（電流）×R（抵抗）がオームの法則！変形するとI＝V÷R、R＝V÷Iも使いこなそう！’ },
+{ id:96, unit:‘g5_electricity’, level:‘easy’,   q:‘直列回路では電流はどうなる？’, choices:[‘分かれる’,‘どこも同じ’,‘場所によって違う’,‘合計される’], answer:1, exp:‘直列回路は電流の通り道が1本だから、どこでも同じ電流が流れる。電圧は各抵抗に分かれて加わるよ！’ },
+{ id:97, unit:‘g5_electricity’, level:‘easy’,   q:‘磁石のN極とN極を近づけると？’, choices:[‘引き合う’,‘反発する’,‘どちらでもない’,‘くっつく’], answer:1, exp:‘同じ極（N-N、S-S）は反発し合い、異なる極（N-S）は引き合う。磁石の基本！’ },
+{ id:98, unit:‘g5_electricity’, level:‘easy’,   q:‘電磁誘導で電流を発生させるには？’, choices:[‘電池を近づける’,‘磁石をコイルの近くで動かす’,‘コイルに光を当てる’,‘コイルを温める’], answer:1, exp:‘磁石をコイルの中で動かすと電流が発生する（電磁誘導）。これが発電機・自転車のライトの原理！’ },
+{ id:99, unit:‘g5_electricity’, level:‘easy’,   q:‘電圧（V）の単位「ボルト」が表すのは？’, choices:[‘電流の強さ’,‘電気を流そうとする勢い（圧力）’,‘抵抗の大きさ’,‘電力の大きさ’], answer:1, exp:‘電圧は電気を流そうとする「勢い」や「圧力」。高い電圧ほど強い電流が流れやすくなるよ！’ },
+{ id:100, unit:‘g5_electricity’, level:‘normal’, q:‘10Ωの抵抗に5Vの電圧をかけると流れる電流は？’, choices:[‘0.2A’,‘0.5A’,‘2A’,‘50A’], answer:1, exp:‘I＝V÷R＝5÷10＝0.5A。オームの法則の計算！単位（A・V・Ω）の関係を整理して使おう！’ },
+{ id:101, unit:‘g5_electricity’, level:‘normal’, q:‘並列回路で10Ωと20Ωの抵抗をつなぐと合成抵抗は？’, choices:[‘30Ω’,‘5Ω’,‘6.67Ω’,‘15Ω’], answer:2, exp:‘並列の合成抵抗：1/R＝1/10＋1/20＝3/20。R≈6.67Ω。並列は合成抵抗が各抵抗より小さくなるよ！’ },
+{ id:102, unit:‘g5_electricity’, level:‘normal’, q:‘フレミングの左手の法則で親指が示すのは？’, choices:[‘磁界の向き’,‘電流の向き’,‘力（運動）の向き’,‘電圧の向き’], answer:2, exp:‘フレミング左手：中指が電流・人差し指が磁界・親指が力の向き。モーターの動く方向を求めるのに使うよ！’ },
+{ id:103, unit:‘g5_electricity’, level:‘normal’, q:‘家庭用コンセントの電気が交流である特徴は？’, choices:[‘電流の向きが一定’,‘電流の向きが周期的に変わる’,‘電圧が0V固定’,‘電流が流れない’], answer:1, exp:‘交流（AC）は電流の向きが周期的に変わる（日本は50Hzまたは60Hz）。直流（DC）は向きが一定（電池）。’ },
+{ id:104, unit:‘g5_electricity’, level:‘hard’,   q:‘直列に20Ωと30Ωの抵抗をつなぎ10Vの電池をつないだとき20Ωにかかる電圧は？’, choices:[‘2V’,‘3V’,‘4V’,‘6V’], answer:2, exp:‘合成抵抗50Ω。電流I＝10/50＝0.2A。20Ωにかかる電圧＝0.2×20＝4V。直列では電圧が抵抗比で分かれる！’ },
+{ id:105, unit:‘g5_electricity’, level:‘hard’,   q:‘電力（W）の計算式は？’, choices:[‘P＝V×I’,‘P＝V÷I’,‘P＝V＋I’,‘P＝I²÷R’], answer:0, exp:‘電力（W）＝電圧（V）×電流（A）。100Wの電球は100V×1A＝100W。電力×時間＝電力量（Wh）！’ },
+{ id:106, unit:‘g5_electricity’, level:‘hard’,   q:‘コイルの巻き数を2倍・磁石の強さを2倍にしたとき、電磁誘導の電流はどうなる？’, choices:[‘2倍’,‘4倍’,‘変わらない’,‘8倍’], answer:1, exp:‘巻き数2倍×磁石強さ2倍＝4倍の電流。各要因が掛け算で効くので、両方2倍なら4倍になる！’ },
+
+// —– g6_chemistry —–
+{ id:107, unit:‘g6_chemistry’, level:‘easy’,   q:‘燃焼が起きる3つの条件はどれ？’, choices:[‘酸素・光・熱’,‘燃えるもの・酸素・発火点以上の温度’,‘水・酸素・燃えるもの’,‘燃えるもの・二酸化炭素・高温’], answer:1, exp:‘燃焼の3条件：①燃えるもの（可燃物）②酸素 ③発火点以上の温度。1つでも欠けると燃えない！’ },
+{ id:108, unit:‘g6_chemistry’, level:‘easy’,   q:‘BTB溶液が黄色を示す水溶液の性質は？’, choices:[‘中性’,‘アルカリ性’,‘酸性’,‘無性’], answer:2, exp:‘BTB溶液：酸性→黄色、中性→緑色、アルカリ性→青色。リトマス紙と合わせて覚えよう！’ },
+{ id:109, unit:‘g6_chemistry’, level:‘easy’,   q:‘塩酸（HCl）と水酸化ナトリウム（NaOH）が中和すると何ができる？’, choices:[‘酢酸と水’,‘塩化ナトリウム（食塩）と水’,‘炭酸ガスと水’,‘酸素と水’], answer:1, exp:‘塩酸＋水酸化ナトリウム→塩化ナトリウム（食塩）＋水。中和：酸＋アルカリ→塩＋水の代表例！’ },
+{ id:110, unit:‘g6_chemistry’, level:‘easy’,   q:‘鉄がさびるとき、酸素と結合する反応を何という？’, choices:[‘還元’,‘蒸発’,‘酸化’,‘溶解’], answer:2, exp:‘鉄がさびる・ものが燃えるのはどちらも酸化（酸素と結合する反応）。燃焼は急速な酸化だよ！’ },
+{ id:111, unit:‘g6_chemistry’, level:‘easy’,   q:‘フェノールフタレイン溶液が赤くなる水溶液の性質は？’, choices:[‘酸性’,‘中性’,‘アルカリ性’,‘どんな水溶液でも’], answer:2, exp:‘フェノールフタレイン：アルカリ性のみ赤（ピンク）色に変わる。酸性・中性では無色のまま！’ },
+{ id:112, unit:‘g6_chemistry’, level:‘normal’, q:‘酸化銅を水素で加熱して銅に戻す反応を何という？’, choices:[‘酸化’,‘中和’,‘還元’,‘電離’], answer:2, exp:‘酸化銅＋水素→銅＋水。酸化物から酸素を奪う反応が「還元」。酸化と還元は必ず同時に起きる（酸化還元反応）！’ },
+{ id:113, unit:‘g6_chemistry’, level:‘normal’, q:‘中和反応で「ちょうど中和した点」を何という？’, choices:[‘中和点’,‘飽和点’,‘沸点’,‘平衡点’], answer:0, exp:‘中和点（当量点）：酸とアルカリがちょうど打ち消しあった点。BTBで緑色になるのが中性（pH7）！’ },
+{ id:114, unit:‘g6_chemistry’, level:‘normal’, q:‘ものが燃えた後、重さはどうなる？（密閉容器中での燃焼）’, choices:[‘減る’,‘増える’,‘変わらない’,‘なくなる’], answer:2, exp:‘密閉容器では燃焼で発生したCO₂・H₂Oも全部残るので質量は変わらない（質量保存の法則）！’ },
+{ id:115, unit:‘g6_chemistry’, level:‘normal’, q:‘水溶液の酸性の強さを表す指標のpHで、pH3とpH6ではどちらが強い酸性？’, choices:[‘pH6の方が強い酸性’,‘pH3の方が強い酸性’,‘同じ強さ’,‘pHは酸性の強さを表さない’], answer:1, exp:‘pHは数値が小さいほど強い酸性・大きいほど強いアルカリ性。pH7が中性。pH3は強酸性！’ },
+{ id:116, unit:‘g6_chemistry’, level:‘hard’,   q:‘マグネシウムを空気中で燃焼させると質量はどうなる？’, choices:[‘減る（酸素が奪われるから）’,‘変わらない’,‘増える（酸素と結合するから）’,‘なくなる’], answer:2, exp:‘Mg＋O₂→MgO。マグネシウムが酸素と結合して酸化マグネシウムになるので質量が増える！質量保存の法則より。’ },
+{ id:117, unit:‘g6_chemistry’, level:‘hard’,   q:‘100mLの塩酸を完全に中和するのに水酸化ナトリウム水溶液60mLが必要だった。この塩酸150mLを中和するには何mL必要？’, choices:[‘60mL’,‘90mL’,‘120mL’,‘150mL’], answer:1, exp:‘100mL→60mLだから比は100:60＝5:3。150mLには150×(3/5)＝90mL必要。中和の比例計算が頻出！’ },
+{ id:118, unit:‘g6_chemistry’, level:‘hard’,   q:‘炭素（C）を完全燃焼させたとき生成する物質は？’, choices:[‘CO（一酸化炭素）’,‘CO₂（二酸化炭素）’,‘C₂O₃’,‘水（H₂O）’], answer:1, exp:‘Cが完全燃焼：C＋O₂→CO₂。不完全燃焼だとCOが出る。入試では「完全燃焼」かどうか確認しよう！’ },
+
+// —– g6_mechanics —–
+{ id:119, unit:‘g6_mechanics’, level:‘easy’,   q:‘水中の物体に働く浮力は何で決まる？’, choices:[‘物体の重さ’,‘物体の材質’,‘水中に入っている体積’,‘水の温度’], answer:2, exp:‘浮力＝押しのけた水の重さ＝水中の体積×水の密度。完全に沈めば浮力は最大（同じ体積の水の重さ）！’ },
+{ id:120, unit:‘g6_mechanics’, level:‘easy’,   q:‘てこの計算で「支点から左に20cm・100gのおもり」とつりあわせるために「支点から右に40cmに置くおもり」は何g？’, choices:[‘200g’,‘100g’,‘50g’,‘25g’], answer:2, exp:‘左：100×20＝2000。右：□×40＝2000。□＝50g。力×距離が等しくなるのがてこのつりあい！’ },
+{ id:121, unit:‘g6_mechanics’, level:‘easy’,   q:’「仕事の原理」とは何か？’, choices:[‘力が大きいほど仕事が楽になる’,‘道具を使っても仕事量は変わらない’,‘滑車を使うと必ず速くなる’,‘道具を使うと仕事量が減る’], answer:1, exp:‘仕事の原理：道具（滑車・斜面・てこ）を使っても仕事の総量は変わらない。力×距離が一定！’ },
+{ id:122, unit:‘g6_mechanics’, level:‘easy’,   q:‘位置エネルギーが最大になるのはいつ？’, choices:[‘最も速く動いているとき’,‘最も高い位置にあるとき’,‘地面に触れたとき’,‘止まっているとき’], answer:1, exp:‘位置エネルギー＝mgh（高さに比例）。ブランコの一番高いところで最大、一番低いところで最小（運動エネルギー最大）！’ },
+{ id:123, unit:‘g6_mechanics’, level:‘easy’,   q:‘密度2g/cm³・体積50cm³の物体を水に入れたとき、沈む？浮く？’, choices:[‘浮く（密度が水より大きいから）’,‘沈む（密度が水より大きいから）’,‘半分だけ沈む’,‘底に激しく沈む’], answer:1, exp:‘密度2g/cm³＞水の密度1g/cm³なので沈む。密度が水より大きいものは沈み、小さいものは浮くよ！’ },
+{ id:124, unit:‘g6_mechanics’, level:‘normal’, q:‘動滑車2つと定滑車1つを組み合わせ200Nの荷物を持ち上げるとき必要な力は？’, choices:[‘200N’,‘100N’,‘50N’,‘25N’], answer:2, exp:‘動滑車1つで力が1/2に。動滑車2つで力が1/4に→200×1/4＝50N。ひもを引く距離は4倍必要だよ！’ },
+{ id:125, unit:‘g6_mechanics’, level:‘normal’, q:‘水の密度1g/cm³・物体の体積100cm³・物体の質量150g。この物体を水に入れたとき、水面から出る体積は何cm³？’, choices:[‘全部沈む’,‘100cm³（全部出る）’,‘50cm³’,‘約33cm³’], answer:3, exp:‘物体の密度＝150/100＝1.5g/cm³＞1g/cm³なので全部沈む。浮く場合は（物体の質量/水の密度）cm³が沈む。’ },
+{ id:126, unit:‘g6_mechanics’, level:‘normal’, q:‘なめらかな斜面（長さ10m・高さ2m）を使って100Nの荷物を上げるとき必要な力は？’, choices:[‘100N’,‘50N’,‘20N’,‘10N’], answer:2, exp:‘仕事量一定：100N×2m＝200J。斜面：F×10m＝200J → F＝20N。斜面の長さが長いほど力が小さくなる！’ },
+{ id:127, unit:‘g6_mechanics’, level:‘normal’, q:‘空気中での重さ5N、水中での重さ3Nの物体。浮力は何N？’, choices:[‘8N’,‘3N’,‘5N’,‘2N’], answer:3, exp:‘浮力＝空気中の重さ−水中の重さ＝5−3＝2N。これが基本の浮力の求め方！水中の重さを「みかけの重さ」という。’ },
+{ id:128, unit:‘g6_mechanics’, level:‘hard’,   q:‘鉄製の船が水に浮くのはなぜ？’, choices:[‘鉄の密度が水より小さいから’,‘中が空洞で全体の密度が水より小さいから’,‘海水の浮力が特に大きいから’,‘鉄と水が反応して浮く力が生まれるから’], answer:1, exp:‘鉄の密度は約7.87g/cm³で水より大きい。でも船は空洞があり、全体の平均密度を水より小さくすることで浮く！’ },
+{ id:129, unit:‘g6_mechanics’, level:‘hard’,   q:‘長さ1mの棒の重心（重さが均等の棒）の左端から20cmに支点を置く。左端に100gのおもりをつるすとき、反対側のつりあいに必要な条件は？’, choices:[‘右端（100cm）に30g’,‘右端（100cm）に25g’,‘右から40cmの場所に50g’,‘左から70cmの場所に50g’], answer:0, exp:‘支点（左端から20cm）：左腕20cm、右腕80cm。棒自体の重さ（重心は50cm）も考える。左：100×20＝2000 → 右端：x×80…計算は棒の重さを含め複雑。ここは原理理解が大切！’ },
+{ id:130, unit:‘g6_mechanics’, level:‘hard’,   q:‘単振り子の周期に影響するのはどれ？’, choices:[‘おもりの重さ’,‘振れ幅（小さい場合）’,‘ひもの長さ’,‘空気の温度’], answer:2, exp:‘振り子の周期はひもの長さだけで決まる（重さや振れ幅には関係しない）。T＝2π√(L/g)がその式！’ },
+
+// —– g6_stars —–
+{ id:131, unit:‘g6_stars’, level:‘easy’,   q:‘太陽系の惑星の順番（太陽から）で正しいのは？’, choices:[‘水・金・火・地・木・土・天・海’,‘水・金・地・火・木・土・天・海’,‘地・火・木・土・水・金・天・海’,‘水・地・金・火・土・木・天・海’], answer:1, exp:‘水星・金星・地球・火星・木星・土星・天王星・海王星。「水金地火木土天海」で覚えよう！’ },
+{ id:132, unit:‘g6_stars’, level:‘easy’,   q:‘自ら光を出す天体を何という？’, choices:[‘惑星’,‘衛星’,‘恒星’,‘彗星’], answer:2, exp:‘恒星は核融合反応でエネルギーを出して自ら光る（太陽・シリウスなど）。惑星・衛星は自ら光らない！’ },
+{ id:133, unit:‘g6_stars’, level:‘easy’,   q:‘夏の代表的な星座「さそり座」の明るい赤い星の名前は？’, choices:[‘デネブ’,‘ベガ’,‘アルタイル’,‘アンタレス’], answer:3, exp:‘アンタレスはさそり座のα星（最も明るい星）。赤くて大きな星（赤色超巨星）。夏の南の空に見えるよ！’ },
+{ id:134, unit:‘g6_stars’, level:‘easy’,   q:‘太陽系で環（リング）を持つ惑星として最も有名なのは？’, choices:[‘木星’,‘火星’,‘土星’,‘海王星’], answer:2, exp:‘土星は美しい環を持つ惑星として有名。環は主に氷と岩石の破片でできているよ！’ },
+{ id:135, unit:‘g6_stars’, level:‘easy’,   q:‘北の空の星は何を中心に動いて見える？’, choices:[‘月’,‘太陽’,‘北極星’,‘オリオン座’], answer:2, exp:‘北極星は地球の自転軸の延長線上にあり、ほぼ動かない。他の北の星は北極星を中心に反時計回りに回る！’ },
+{ id:136, unit:‘g6_stars’, level:‘normal’, q:‘天の川銀河で太陽系はどこにある？’, choices:[‘銀河の中心’,‘銀河の端の方（腕の一部）’,‘別の銀河’,‘銀河の外側’], answer:1, exp:‘太陽系は天の川銀河（直径約10万光年）の中心から約2.6万光年離れた渦巻き腕の一部にあるよ！’ },
+{ id:137, unit:‘g6_stars’, level:‘normal’, q:‘星が東の空から西の空へ1日に動いて見える（日周運動）の原因は？’, choices:[‘星自体が移動しているから’,‘地球が自転しているから’,‘地球が公転しているから’,‘月の引力のため’], answer:1, exp:‘地球の自転（西から東へ）のため、星は東→南→西に動いて見える。これを「日周運動」という！’ },
+{ id:138, unit:‘g6_stars’, level:‘normal’, q:‘冬の大三角を構成する星はどれ？’, choices:[‘ベガ・アルタイル・デネブ’,‘シリウス・ベテルギウス・プロキオン’,‘アンタレス・スピカ・アルクトゥルス’,‘シリウス・リゲル・プロキオン’], answer:1, exp:‘冬の大三角：シリウス（おおいぬ座）・ベテルギウス（オリオン座）・プロキオン（こいぬ座）！’ },
+{ id:139, unit:‘g6_stars’, level:‘normal’, q:‘星の年周運動（1年かけての移動）の原因は？’, choices:[‘地球の自転’,‘地球の公転’,‘月の公転’,‘太陽の自転’], answer:1, exp:‘地球が公転することで、夜に見える星座が1ヶ月で約30°西へずれる（年周運動）。季節ごとに星座が変わる理由！’ },
+{ id:140, unit:‘g6_stars’, level:‘hard’,   q:‘太陽の中心で起きているエネルギー源は？’, choices:[‘核分裂（ウランの分裂）’,‘核融合（水素→ヘリウム）’,‘燃焼（酸素と水素の反応）’,‘化学反応’], answer:1, exp:‘太陽では水素原子核4つがヘリウム原子核1つに融合する核融合反応でエネルギーが生まれる。質量が少し減る！’ },
+{ id:141, unit:‘g6_stars’, level:‘hard’,   q:‘1光年とはどのくらいの距離か？’, choices:[‘光が1秒に進む距離（約30万km）’,‘光が1年間に進む距離（約9.5兆km）’,‘地球から太陽までの距離（約1.5億km）’,‘地球の直径（約1.3万km）’], answer:1, exp:‘1光年＝光が1年間に進む距離＝約9.5兆km。最も近い恒星（ケンタウルスα星）でも約4.2光年離れているよ！’ },
+{ id:142, unit:‘g6_stars’, level:‘hard’,   q:’「地球が丸い」ことを示す証拠として最も古典的なものは？’, choices:[‘衛星写真で確認した’,‘船が遠ざかるとき船体から消えていく（地球の曲率）’,‘月食で地球の影が丸い’,‘宇宙に出た宇宙飛行士が見た’], answer:2, exp:‘月食のとき地球の影が丸く見える・船が地平線の向こうへ消えるとき船体から順に消える、などが古典的証拠！’ },
+
+// —– g6_weather —–
+{ id:143, unit:‘g6_weather’, level:‘easy’,   q:‘低気圧では空気はどのように流れ込む？’, choices:[‘中心から外へ（時計回り）’,‘外から中心へ（反時計回り）・上昇気流’,‘外から中心へ（時計回り）’,‘中心から外へ（反時計回り）’], answer:1, exp:‘低気圧：周囲から中心へ反時計回りに流れ込み、中心で上昇気流→雲・雨。これが低気圧と雨の関係！’ },
+{ id:144, unit:‘g6_weather’, level:‘easy’,   q:‘寒冷前線の通過後の天気の変化は？’, choices:[‘暖かくなり長雨が続く’,‘急激に温度が下がり晴れてくることが多い’,‘変化がない’,‘霧が続く’], answer:1, exp:‘寒冷前線通過後：急な気温低下・北西風・晴れ（気圧上昇）。通過時は短時間の激しい雨・雷雨！’ },
+{ id:145, unit:‘g6_weather’, level:‘easy’,   q:‘台風が最も発生しやすい時期はいつ？’, choices:[‘3〜5月（春）’,‘6〜7月（梅雨）’,‘8〜9月（夏〜初秋）’,‘12〜2月（冬）’], answer:2, exp:‘台風は熱帯・亜熱帯の海面温度が高い夏に発生しやすく、8〜9月に日本への影響が最も多いよ！’ },
+{ id:146, unit:‘g6_weather’, level:‘easy’,   q:‘日本の気候に大きな影響を与える「偏西風」の方向は？’, choices:[‘南から北へ’,‘北から南へ’,‘西から東へ’,‘東から西へ’], answer:2, exp:‘偏西風は西から東へ吹く上空の強い風。日本の天気が「西から東へ変化する」最大の原因！’ },
+{ id:147, unit:‘g6_weather’, level:‘easy’,   q:‘梅雨（つゆ）の原因となる前線を何という？’, choices:[‘寒冷前線’,‘温暖前線’,‘停滞前線（梅雨前線）’,‘閉塞前線’], answer:2, exp:‘梅雨は停滞前線（梅雨前線）が日本付近に停滞することで起きる。オホーツク海高気圧と太平洋高気圧の境界！’ },
+{ id:148, unit:‘g6_weather’, level:‘normal’, q:‘冬に北西の季節風が日本海側に雪を降らせる理由は？’, choices:[‘日本海が冷たいから’,‘大陸から来た冷たく乾いた空気が日本海で水蒸気を補充するから’,‘北西風が直接雪を運ぶから’,‘日本海側の標高が高いから’], answer:1, exp:‘シベリアからの冷たく乾いた風が暖流（対馬海流）の日本海を通ると大量の水蒸気を吸って山脈にぶつかり雪を降らせる！’ },
+{ id:149, unit:‘g6_weather’, level:‘normal’, q:‘閉塞前線（へいそくぜんせん）とは？’, choices:[‘雨をあまり降らさない前線’,‘寒冷前線が温暖前線に追いついたときにできる前線’,‘山脈にぶつかった前線’,‘海上でのみできる前線’], answer:1, exp:‘温帯低気圧が発達すると速い寒冷前線が温暖前線に追いついて閉塞前線を形成。低気圧が衰弱し始めるサイン！’ },
+{ id:150, unit:‘g6_weather’, level:‘normal’, q:‘フェーン現象とは何か？’, choices:[‘海から湿った風が吹いて雨が降る現象’,‘山を越えた風が乾いて温かくなる現象’,‘冬に北から冷たい風が吹く現象’,‘低気圧に吹き込む風の現象’], answer:1, exp:‘フェーン現象：湿った空気が山を越えるとき雨を降らせ、反対側で乾いた高温の風になる。日本海側→関東などで起きる！’ },
+{ id:151, unit:‘g6_weather’, level:‘hard’,   q:‘高気圧と低気圧が交互に通過するとき、天気の変化の周期はおよそ何日？’, choices:[‘1〜2日’,‘3〜7日’,‘15日’,‘30日’], answer:1, exp:‘温帯低気圧と高気圧が交互に通過する春・秋は天気が約3〜7日周期で変化（周期的な天気変化）！’ },
+{ id:152, unit:‘g6_weather’, level:‘hard’,   q:‘気象衛星ひまわりで観測できない情報はどれ？’, choices:[‘雲の分布’,‘台風の位置と強さ’,‘大気の流れ（可視画像）’,‘海底の地形’], answer:3, exp:‘気象衛星は大気・雲・地表面の情報は観測できるが、海底（地形や水温の下の情報）は観測できない！’ },
+
+// —– g6_earthquake —–
+{ id:153, unit:‘g6_earthquake’, level:‘easy’,   q:‘地震が発生する場所（震源）から波が伝わるとき、最初に届く速い波の名前は？’, choices:[‘S波’,‘P波’,‘L波’,‘R波’], answer:1, exp:‘P波（Primary wave/縦波）が先に到着→小さな初期微動。後からS波（Secondary wave/横波）→大きな主要動！’ },
+{ id:154, unit:‘g6_earthquake’, level:‘easy’,   q:‘火山が噴火するとき、地下から出てくる溶けた岩石を何という？’, choices:[‘鉱物’,‘溶岩（地上）・マグマ（地下）’,‘石英’,‘玄武岩’], answer:1, exp:‘地下にあるときはマグマ、地表に出たら溶岩。マグマが固まると火成岩になるよ！’ },
+{ id:155, unit:‘g6_earthquake’, level:‘easy’,   q:‘プレートテクトニクスとは何を説明する理論？’, choices:[‘雲の動きを説明する’,‘地球表面の固い板（プレート）の動きで地震・火山・地形を説明’,‘生物の進化を説明’,‘海流の動きを説明’], answer:1, exp:‘プレートテクトニクス：地球表面を覆う十数枚のプレートが移動し、ぶつかったり離れたりして地震・火山・山脈をつくる！’ },
+{ id:156, unit:‘g6_earthquake’, level:‘easy’,   q:‘地震の震度と地球上の地点の揺れの大きさの関係は？’, choices:[‘震源に近いほど震度が大きい’,‘震度は世界共通でどこでも同じ’,‘震度は震源の深さだけで決まる’,‘震度は地震の規模だけで決まる’], answer:0, exp:‘震度：観測地点の揺れの大きさ（0〜7、5と6は強弱あり計10段階）。震源に近いほど大きく、遠いほど小さい！’ },
+{ id:157, unit:‘g6_earthquake’, level:‘easy’,   q:‘リヒタースケール（マグニチュード）が表すのは？’, choices:[‘観測地点の揺れの大きさ’,‘地震そのものの規模（エネルギー）’,‘震源の深さ’,‘津波の高さ’], answer:1, exp:‘マグニチュード（M）は地震そのものの規模・エネルギーを表す。M7は約30倍のエネルギーがM6より大きい！’ },
+{ id:158, unit:‘g6_earthquake’, level:‘normal’, q:‘初期微動継続時間（P波到達からS波到達まで）が長いほど、震源はどこにある？’, choices:[‘近くにある’,‘遠くにある’,‘深い所にある’,‘浅い所にある’], answer:1, exp:‘P波とS波の速さの差でP波が先に届き、S波が後から届く。その時間差が長い＝震源が遠い！距離の推定に使える！’ },
+{ id:159, unit:‘g6_earthquake’, level:‘normal’, q:‘日本がプレートの境界付近に位置することで起きやすいことは？’, choices:[‘温暖で穏やかな気候’,‘地震・火山活動が活発’,‘広大な平野が多い’,‘砂漠が広がる’], answer:1, exp:‘日本は4つのプレートがぶつかる場所にある。そのためプレートのひずみが溜まり、地震・火山活動が非常に活発！’ },
+{ id:160, unit:‘g6_earthquake’, level:‘normal’, q:‘玄武岩と花崗岩を比べたとき、ねばりけの強いマグマからできるのは？’, choices:[‘玄武岩（黒っぽい）’,‘花崗岩（白っぽい）’,‘どちらも同じ’,‘冷え方で変わる’], answer:1, exp:‘花崗岩はSiO₂（二酸化ケイ素）が多くねばりけ強い白いマグマからできる深成岩。玄武岩は流動性高い黒いマグマ！’ },
+{ id:161, unit:‘g6_earthquake’, level:‘hard’,   q:‘津波が発生しやすいのはどのような地震？’, choices:[‘内陸の浅い地震’,‘海底の大きな地震（プレート境界）’,‘震度7以上のすべての地震’,‘マグマが噴出する地震’], answer:1, exp:‘津波は海底の地震でプレートがはねて海水全体を押し上げるとき発生する。沿岸の浅い海で急激に波が高くなる！’ },
+{ id:162, unit:‘g6_earthquake’, level:‘hard’,   q:‘地震波P波の速さが約8km/s、S波が約4km/sで、初期微動継続時間が5秒なら震源距離は？’, choices:[‘20km’,‘40km’,‘80km’,‘160km’], answer:1, exp:‘距離d：d/4−d/8＝5秒。d(1/4−1/8)＝5。d×(1/8)＝5。d＝40km。公式：d＝初期微動継続時間×（Vp×Vs）/(Vp−Vs)！’ },
+];
+const BADGES = [
+{ id: ‘first_clear’, name: ‘はじめの一歩’, emoji: ‘🌱’, desc: ‘はじめてクイズをクリアした！’, rare: false },
+{ id: ‘perfect’, name: ‘パーフェクト！’, emoji: ‘💫’, desc: ‘全問正解を達成！’, rare: false },
+{ id: ‘streak3’, name: ‘3日連続ログイン’, emoji: ‘🔥’, desc: ‘3日連続でアプリを開いた！’, rare: false },
+{ id: ‘streak7’, name: ‘1週間の星’, emoji: ‘⭐’, desc: ‘7日連続ログイン達成！すごい！’, rare: true },
+{ id: ‘early_bird’, name: ‘早起きさん’, emoji: ‘🌅’, desc: ‘朝6時前にクリアした！’, rare: true },
+{ id: ‘night_owl’, name: ‘夜ふかし研究者’, emoji: ‘🦉’, desc: ‘夜10時以降にクリア！’, rare: false },
+{ id: ‘speed_star’, name: ‘スピードスター’, emoji: ‘⚡’, desc: ‘1問10秒以内で全問正解！’, rare: true },
+{ id: ‘collector’, name: ‘全単元制覇’, emoji: ‘🎨’, desc: ‘全単元でクリアした！’, rare: false },
+{ id: ‘random_master’, name: ‘ミックスの達人’, emoji: ‘🎲’, desc: ‘ランダムモードで全問正解！’, rare: true },
+{ id: ‘hard_first’, name: ‘猛者’, emoji: ‘🗡️’, desc: ‘HARDレベルで初クリア！’, rare: false },
+{ id: ‘hidden1’, name: ‘？？？’, emoji: ‘🌸’, desc: ‘???’, rare: true, hidden: true, hint: ‘春の朝に挑戦してみて…’ },
+{ id: ‘hidden2’, name: ‘？？？’, emoji: ‘🦋’, desc: ‘???’, rare: true, hidden: true, hint: ‘全部のPOINTを見てみて…’ },
+{ id: ‘hidden3’, name: ‘？？？’, emoji: ‘🔭’, desc: ‘???’, rare: true, hidden: true, hint: ‘宇宙の問題を全問正解してみて…’ },
+];
+// =============================================
+//  RIKA LAB — State Management
+// =============================================
+
+const STATE_KEY = ‘rikalab_state_v1’;
+
+const defaultState = () => ({
+streakDays: 0,
+lastPlayDate: null,
+totalCorrect: 0,
+totalAnswered: 0,
+unlockedBadges: [],
+newBadges: [],
+unitProgress: {},  // { unitId: { easy: cleared, normal: cleared, hard: cleared } }
+pointsViewed: [],
+installPrompted: false,
+});
+
+let _state = defaultState();
+
+function loadState() {
+try {
+const saved = localStorage.getItem(STATE_KEY);
+if (saved) {
+_state = { …defaultState(), …JSON.parse(saved) };
+}
+} catch (e) {
+_state = defaultState();
+}
+// Update streak
+const today = new Date().toDateString();
+if (_state.lastPlayDate) {
+const last = new Date(_state.lastPlayDate);
+const now = new Date();
+const diffDays = Math.floor((now - last) / 86400000);
+if (diffDays === 1) {
+_state.streakDays++;
+} else if (diffDays > 1) {
+_state.streakDays = 1;
+}
+} else {
+_state.streakDays = 1;
+}
+_state.lastPlayDate = today;
+saveState();
+}
+
+function saveState() {
+try {
+localStorage.setItem(STATE_KEY, JSON.stringify(_state));
+} catch (e) {}
+}
+
+function getState() { return _state; }
+
+function markUnitCleared(unitId, level) {
+if (!_state.unitProgress[unitId]) _state.unitProgress[unitId] = {};
+_state.unitProgress[unitId][level] = true;
+saveState();
+}
+
+function unlockBadge(badgeId) {
+if (_state.unlockedBadges.includes(badgeId)) return false;
+_state.unlockedBadges.push(badgeId);
+_state.newBadges.push(badgeId);
+saveState();
+return true;
+}
+
+function clearNewBadge(badgeId) {
+_state.newBadges = _state.newBadges.filter(b => b !== badgeId);
+saveState();
+}
+
+function checkAndUnlockBadges(context) {
+const earned = [];
+const { score, total, unitId, level, isRandom, timePerQuestion, hour } = context;
+
+// first clear
+if (!_state.unlockedBadges.includes(‘first_clear’)) {
+if (unlockBadge(‘first_clear’)) earned.push(‘first_clear’);
+}
+// perfect
+if (score === total && unlockBadge(‘perfect’)) earned.push(‘perfect’);
+// streak
+if (_state.streakDays >= 3 && unlockBadge(‘streak3’)) earned.push(‘streak3’);
+if (_state.streakDays >= 7 && unlockBadge(‘streak7’)) earned.push(‘streak7’);
+// time-based
+if (hour !== undefined) {
+if (hour < 6 && unlockBadge(‘early_bird’)) earned.push(‘early_bird’);
+if (hour >= 22 && unlockBadge(‘night_owl’)) earned.push(‘night_owl’);
+}
+// speed
+if (timePerQuestion && timePerQuestion < 10 && score === total && unlockBadge(‘speed_star’)) {
+earned.push(‘speed_star’);
+}
+// hard
+if (level === ‘hard’ && score === total && unlockBadge(‘hard_first’)) earned.push(‘hard_first’);
+// random master
+if (isRandom && score === total && unlockBadge(‘random_master’)) earned.push(‘random_master’);
+// collector - check all units cleared
+const allCleared = UNITS.every(u => {
+const p = _state.unitProgress[u.id];
+return p && (p.easy || p.normal || p.hard);
+});
+if (allCleared && unlockBadge(‘collector’)) earned.push(‘collector’);
+// hidden: stars perfect
+if ((unitId === ‘g6_stars’ || unitId === ‘g5_celestial’) && score === total && unlockBadge(‘hidden3’)) earned.push(‘hidden3’);
+
+return earned;
+}
+// =============================================
+//  RIKA LAB — UI Renderers
+// =============================================
+
+// Grade group open/close state (default: g4 open)
+const _openGrades = { g4: true, g5: false, g6: false };
+
+function renderHome() {
+const state = getState();
+const el = document.getElementById(‘screen-home’);
+
+el.innerHTML = `
+<div class="top-bar">
+<div class="logo">Rika Lab <sup>✦</sup></div>
+<div class="streak-pill">
+<span>🔥</span>
+<span>${state.streakDays}日連続</span>
+</div>
+</div>
+
+```
+<div class="hero">
+  <div class="hero-sub">SCIENCE QUIZ — 四谷大塚対応</div>
+  <div class="hero-heading">
+    今日も<span class="accent">理科</span>、<br>やってみよ？
+  </div>
+</div>
+
+<div class="section-label" style="margin-bottom:10px;">RANDOM MIX</div>
+<div class="random-banner" id="random-banner">
+  <div class="random-icon-wrap">🎲</div>
+  <div class="random-info">
+    <div class="random-title">ランダムミックス</div>
+    <div class="random-desc">全学年・全単元から10問出題<br>EASY40% + NORMAL40% + HARD20%</div>
+  </div>
+  <div class="random-badge">10問</div>
+</div>
+
+<div class="section-label">学年・単元を選ぶ</div>
+<div id="grade-accordion"></div>
+```
+
+`;
+
+// Build grade accordion
+const accordion = el.querySelector(’#grade-accordion’);
+
+GRADE_GROUPS.forEach(group => {
+const groupUnits = UNITS.filter(u => u.grade === group.id);
+const totalUnits = groupUnits.length;
+const clearedUnits = groupUnits.filter(u => {
+const p = state.unitProgress[u.id] || {};
+return p.easy || p.normal || p.hard;
+}).length;
+const isOpen = _openGrades[group.id];
+
+```
+const section = document.createElement('div');
+section.className = 'grade-section';
+section.dataset.grade = group.id;
+
+section.innerHTML = `
+  <button class="grade-header ${isOpen ? 'open' : ''}" data-grade="${group.id}">
+    <div class="grade-header-left">
+      <span class="grade-badge" style="background:${group.color}22;color:${group.color};border:1px solid ${group.color}44">${group.label}</span>
+      <div class="grade-header-info">
+        <div class="grade-header-title">${group.label} <span class="grade-desc">${group.desc}</span></div>
+        <div class="grade-progress-text">${clearedUnits}/${totalUnits}単元</div>
+      </div>
+    </div>
+    <div class="grade-header-right">
+      <div class="grade-mini-bar">
+        <div class="grade-mini-fill" style="width:${totalUnits > 0 ? (clearedUnits/totalUnits*100) : 0}%;background:${group.color}"></div>
+      </div>
+      <span class="grade-chevron">${isOpen ? '▲' : '▼'}</span>
+    </div>
+  </button>
+  <div class="grade-body ${isOpen ? 'open' : ''}">
+    <div class="unit-grid grade-unit-grid" id="grid-${group.id}"></div>
+  </div>
+`;
+accordion.appendChild(section);
+
+// Render unit cards inside this grade
+const grid = section.querySelector(`#grid-${group.id}`);
+groupUnits.forEach(unit => {
+  const progress = state.unitProgress[unit.id] || {};
+  const cleared = [progress.easy, progress.normal, progress.hard].filter(Boolean).length;
+  const pct = (cleared / 3) * 100;
+
+  const card = document.createElement('div');
+  card.className = 'unit-card';
+  card.innerHTML = `
+    <div class="unit-card-glow" style="background:${unit.color}"></div>
+    <span class="unit-emoji">${unit.emoji}</span>
+    <div class="unit-name">${unit.name}</div>
+    <div class="unit-progress"><div class="unit-progress-fill" style="width:${pct}%;background:${unit.color}"></div></div>
+    <div class="unit-levels">
+      <button class="lvl-btn lvl-easy" data-unit="${unit.id}" data-level="easy">EASY</button>
+      <button class="lvl-btn lvl-normal" data-unit="${unit.id}" data-level="normal">NRM</button>
+      <button class="lvl-btn lvl-hard" data-unit="${unit.id}" data-level="hard">HARD</button>
+    </div>
+    <button class="unit-point-btn" data-unit="${unit.id}" data-action="point">
+      ✦ POINT まとめ
+    </button>
+  `;
+  grid.appendChild(card);
+});
+```
+
+});
+
+// Events — grade accordion toggle
+el.querySelectorAll(’.grade-header’).forEach(btn => {
+btn.addEventListener(‘click’, () => {
+const gid = btn.dataset.grade;
+_openGrades[gid] = !_openGrades[gid];
+btn.classList.toggle(‘open’, _openGrades[gid]);
+btn.querySelector(’.grade-chevron’).textContent = _openGrades[gid] ? ‘▲’ : ‘▼’;
+const body = btn.nextElementSibling;
+body.classList.toggle(‘open’, _openGrades[gid]);
+});
+});
+
+el.querySelector(’#random-banner’).addEventListener(‘click’, () => startQuiz(null, null, true));
+
+el.querySelectorAll(’.lvl-btn’).forEach(btn => {
+btn.addEventListener(‘click’, e => {
+e.stopPropagation();
+startQuiz(btn.dataset.unit, btn.dataset.level, false);
+});
+});
+
+el.querySelectorAll(’.unit-point-btn’).forEach(btn => {
+btn.addEventListener(‘click’, e => {
+e.stopPropagation();
+showPointOverlay(btn.dataset.unit);
+});
+});
+}
+
+function renderBadges() {
+const state = getState();
+const el = document.getElementById(‘screen-badges’);
+const unlockedCount = state.unlockedBadges.length;
+const total = BADGES.length;
+
+el.innerHTML = `<div class="badges-screen"> <div class="top-bar" style="padding-top:52px;padding-bottom:0;"> <div class="logo">コレクション</div> </div> <div class="badges-header" style="padding:12px 0 0;"> <div class="hero-sub" style="font-family:'Syne',sans-serif;font-size:10px;letter-spacing:3px;color:var(--c-muted);">BADGES</div> <div class="badges-count"><span>${unlockedCount}</span> / ${total} 獲得済み</div> </div> <div class="badge-grid" id="badge-grid"></div> </div>`;
+
+const grid = el.querySelector(’#badge-grid’);
+BADGES.forEach(badge => {
+const unlocked = state.unlockedBadges.includes(badge.id);
+const isNew = state.newBadges.includes(badge.id);
+const item = document.createElement(‘div’);
+item.className = `badge-item ${unlocked ? 'unlocked' : 'locked'} ${badge.rare ? 'rare' : ''}`;
+item.innerHTML = `${isNew ? '<div class="badge-new-dot"></div>' : ''} <div class="badge-emoji-wrap"> ${badge.rare && unlocked ? '<div class="rare-glow"></div>' : ''} ${unlocked ? badge.emoji : (badge.hidden ? '🔒' : badge.emoji)} </div> <div class="badge-name">${unlocked ? badge.name : (badge.hidden ? '？？？' : badge.name)}</div>`;
+if (unlocked && isNew) {
+item.addEventListener(‘click’, () => {
+clearNewBadge(badge.id);
+item.querySelector(’.badge-new-dot’)?.remove();
+});
+}
+grid.appendChild(item);
+});
+}
+
+function showPointOverlay(unitId) {
+const unit = UNITS.find(u => u.id === unitId);
+if (!unit) return;
+
+const sheet = document.getElementById(‘point-sheet’);
+sheet.innerHTML = `<div class="overlay-handle"></div> <div class="point-unit-header"> <div class="point-unit-emoji">${unit.emoji}</div> <div> <div class="point-unit-title">POINT SUMMARY</div> <div class="point-unit-name">${unit.name}</div> </div> </div> <div class="point-label">これさえ押さえればOK！</div> <div class="point-list"> ${unit.point.items.map(item =>`
+<div class="point-item">
+<div class="point-item-icon">${item.icon}</div>
+<div class="point-item-text">${item.text}</div>
+</div>
+`).join('')} </div> `;
+
+const overlay = document.getElementById(‘point-overlay’);
+overlay.classList.remove(‘hidden’);
+
+// Track viewed
+const state = getState();
+if (!state.pointsViewed.includes(unitId)) {
+state.pointsViewed.push(unitId);
+saveState();
+// Check hidden badge
+if (state.pointsViewed.length >= UNITS.length) {
+const earned = unlockBadge(‘hidden2’);
+if (earned) showBadgeUnlock(‘hidden2’);
+}
+}
+}
+
+function hidePointOverlay() {
+document.getElementById(‘point-overlay’).classList.add(‘hidden’);
+}
+
+function showBadgeUnlock(badgeId) {
+const badge = BADGES.find(b => b.id === badgeId);
+if (!badge) return;
+
+const popup = document.getElementById(‘badge-unlock-popup’);
+popup.innerHTML = `<div class="badge-unlock-glow"></div> <div class="badge-unlock-label">✦ NEW BADGE UNLOCKED ✦</div> <span class="badge-unlock-emoji">${badge.emoji}</span> <div class="badge-unlock-name">${badge.name}</div> <div class="badge-unlock-desc">${badge.desc}</div> <button class="badge-unlock-close" onclick="hideBadgeUnlock()">やったー！ ✦</button>`;
+
+const overlay = document.getElementById(‘badge-unlock-overlay’);
+overlay.classList.remove(‘hidden’);
+}
+
+function hideBadgeUnlock() {
+document.getElementById(‘badge-unlock-overlay’).classList.add(‘hidden’);
+}
+
+function switchTab(tab) {
+document.querySelectorAll(’.nav-btn’).forEach(b => b.classList.remove(‘active’));
+document.querySelectorAll(’.screen’).forEach(s => s.classList.remove(‘active’));
+
+if (tab === ‘home’) {
+document.querySelector(’[data-tab=“home”]’).classList.add(‘active’);
+document.getElementById(‘screen-home’).classList.add(‘active’);
+renderHome();
+} else if (tab === ‘badges’) {
+document.querySelector(’[data-tab=“badges”]’).classList.add(‘active’);
+document.getElementById(‘screen-badges’).classList.add(‘active’);
+renderBadges();
+}
+}
+
+function showScreen(screenId) {
+document.querySelectorAll(’.screen’).forEach(s => s.classList.remove(‘active’));
+document.getElementById(screenId).classList.add(‘active’);
+}
+// =============================================
+//  RIKA LAB — Quiz Engine
+// =============================================
+
+let quizSession = null;
+
+function startQuiz(unitId, level, isRandom) {
+// Build question pool
+let pool;
+const KEYS = [‘A’, ‘B’, ‘C’, ‘D’];
+
+if (isRandom) {
+const easy   = QUESTIONS.filter(q => q.level === ‘easy’);
+const normal = QUESTIONS.filter(q => q.level === ‘normal’);
+const hard   = QUESTIONS.filter(q => q.level === ‘hard’);
+pool = [
+…shuffle(easy).slice(0, 4),
+…shuffle(normal).slice(0, 4),
+…shuffle(hard).slice(0, 2),
+];
+pool = shuffle(pool).slice(0, 10);
+} else {
+pool = shuffle(QUESTIONS.filter(q => q.unit === unitId && q.level === level)).slice(0, 5);
+if (pool.length === 0) {
+// Fall back to any level if not enough
+pool = shuffle(QUESTIONS.filter(q => q.unit === unitId)).slice(0, 5);
+}
+}
+
+quizSession = {
+questions: pool,
+current: 0,
+score: 0,
+unitId,
+level,
+isRandom,
+startTime: Date.now(),
+questionStartTime: Date.now(),
+times: [],
+answered: false,
+};
+
+showScreen(‘screen-quiz’);
+document.getElementById(‘bottom-nav’).style.display = ‘none’;
+renderQuestion();
+}
+
+function renderQuestion() {
+const s = quizSession;
+const q = s.questions[s.current];
+const total = s.questions.length;
+const el = document.getElementById(‘screen-quiz’);
+const unit = UNITS.find(u => u.id === (q.unit || s.unitId));
+const levelLabel = s.isRandom ? ‘RANDOM MIX’ : s.level.toUpperCase();
+const levelChip = s.isRandom ? ‘chip-mix’ : `chip-${s.level}`;
+
+el.innerHTML = `<div class="quiz-topbar"> <button class="back-btn" id="quiz-back"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> </button> <div class="quiz-meta"> <div class="quiz-unit-name">${unit ? unit.name : '全単元'}</div> <span class="quiz-level-chip ${levelChip}">${levelLabel}</span> </div> <div class="quiz-counter"><span>${s.current + 1}</span> / ${total}</div> </div> <div class="progress-wrap"> <div class="progress-fill" id="progress-fill" style="width:${(s.current / total) * 100}%"></div> </div> <div class="question-wrap"> <div class="question-card"> <div class="q-num">Q ${String(s.current + 1).padStart(2, '0')}</div> <div class="q-text">${q.q}</div> </div> <div class="choices" id="choices"></div> </div>`;
+
+// Animate progress
+requestAnimationFrame(() => {
+const fill = document.getElementById(‘progress-fill’);
+if (fill) fill.style.width = `${((s.current + 1) / total) * 100}%`;
+});
+
+const choicesEl = el.querySelector(’#choices’);
+const KEYS = [‘A’, ‘B’, ‘C’, ‘D’];
+q.choices.forEach((choice, i) => {
+const btn = document.createElement(‘button’);
+btn.className = ‘choice’;
+btn.innerHTML = `<div class="choice-key">${KEYS[i]}</div>${choice}`;
+btn.addEventListener(‘click’, () => handleAnswer(i, btn));
+// Stagger animation
+btn.style.opacity = ‘0’;
+btn.style.transform = ‘translateY(10px)’;
+btn.style.transition = `opacity 0.25s ${i * 0.06}s ease, transform 0.25s ${i * 0.06}s ease, background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s`;
+choicesEl.appendChild(btn);
+requestAnimationFrame(() => {
+btn.style.opacity = ‘1’;
+btn.style.transform = ‘translateY(0)’;
+});
+});
+
+el.querySelector(’#quiz-back’).addEventListener(‘click’, exitQuiz);
+
+quizSession.answered = false;
+quizSession.questionStartTime = Date.now();
+}
+
+function handleAnswer(index, btnEl) {
+if (quizSession.answered) return;
+quizSession.answered = true;
+
+const elapsed = (Date.now() - quizSession.questionStartTime) / 1000;
+quizSession.times.push(elapsed);
+
+const q = quizSession.questions[quizSession.current];
+const correct = index === q.answer;
+
+if (correct) quizSession.score++;
+
+// Disable all choices and mark
+const el = document.getElementById(‘screen-quiz’);
+el.querySelectorAll(’.choice’).forEach((btn, i) => {
+btn.disabled = true;
+if (i === q.answer) {
+btn.classList.add(‘correct’);
+const shimmer = document.createElement(‘div’);
+shimmer.className = ‘choice-shimmer’;
+btn.appendChild(shimmer);
+} else if (i === index && !correct) {
+btn.classList.add(‘wrong’);
+}
+});
+
+// Show explanation
+const wrap = el.querySelector(’.question-wrap’);
+const expCard = document.createElement(‘div’);
+expCard.className = ‘explanation-card’;
+expCard.innerHTML = `<div class="explanation-icon">${correct ? '✅' : '💡'}</div> <div class="explanation-text">${q.exp}</div>`;
+wrap.appendChild(expCard);
+
+// Next button
+const nextBtn = document.createElement(‘button’);
+nextBtn.className = ‘next-btn’;
+const isLast = quizSession.current === quizSession.questions.length - 1;
+nextBtn.innerHTML = isLast
+? ‘結果を見る <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>’
+: ‘次の問題へ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>’;
+nextBtn.addEventListener(‘click’, () => {
+if (isLast) {
+showResult();
+} else {
+quizSession.current++;
+renderQuestion();
+}
+});
+wrap.appendChild(nextBtn);
+
+// Scroll to show explanation
+setTimeout(() => {
+expCard.scrollIntoView({ behavior: ‘smooth’, block: ‘nearest’ });
+}, 150);
+}
+
+function showResult() {
+const s = quizSession;
+const total = s.questions.length;
+const score = s.score;
+const pct = score / total;
+const avgTime = s.times.reduce((a, b) => a + b, 0) / s.times.length;
+const hour = new Date().getHours();
+
+// Mark progress
+if (!s.isRandom && s.unitId) {
+markUnitCleared(s.unitId, s.level);
+}
+
+// Check badges
+const context = {
+score, total,
+unitId: s.unitId,
+level: s.level,
+isRandom: s.isRandom,
+timePerQuestion: avgTime,
+hour,
+};
+const earnedIds = checkAndUnlockBadges(context);
+
+// Message
+const messages = pct === 1
+? [‘完璧！！天才かも✨’, ‘パーフェクト！最高すぎる🌟’, ‘全問正解！すごすぎ💫’]
+: pct >= 0.8
+? [‘いい感じ！もう少しだ🌿’, ‘ほぼ完璧！あともう少し⭐’, ‘すごく上手くなってる！🎯’]
+: pct >= 0.6
+? [‘なかなかよかったよ！📚’, ‘もう一回やったらもっとできる！🔄’, ‘いい調子！続けよう🌱’]
+: [‘むずかしかったね💪’, ‘POINTまとめを確認してみよう！📖’, ‘ドンマイ！次はきっとできる🌈’];
+
+const msg = messages[Math.floor(Math.random() * messages.length)];
+const stars = pct === 1 ? ‘⭐⭐⭐’ : pct >= 0.8 ? ‘⭐⭐’ : pct >= 0.6 ? ‘⭐’ : ‘’;
+
+// Circumference of ring: 2 * PI * r = 2 * 3.14159 * 54 = ~339.3
+const CIRC = 339.3;
+const dashOffset = CIRC - (CIRC * pct);
+
+const earnedBadges = BADGES.filter(b => earnedIds.includes(b.id));
+
+const el = document.getElementById(‘screen-result’);
+el.innerHTML = `<div class="result-screen"> ${stars ?`<div class="result-stars">${stars}</div>` : ‘<div style="height:16px"></div>’}
+
+```
+  <div class="result-score-ring">
+    <svg viewBox="0 0 120 120">
+      <defs>
+        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#059669"/>
+          <stop offset="100%" style="stop-color:#0284c7"/>
+        </linearGradient>
+      </defs>
+      <circle class="ring-bg" cx="60" cy="60" r="54"/>
+      <circle class="ring-fill" cx="60" cy="60" r="54" id="ring-fill"/>
+    </svg>
+    <div class="result-score-label">
+      <div class="result-score-num">${score}</div>
+      <div class="result-score-total">/ ${total}問</div>
+    </div>
+  </div>
+  
+  <div class="result-message">${msg}</div>
+  <div class="result-sub">正解率 ${Math.round(pct * 100)}% ・ 平均${avgTime.toFixed(1)}秒/問</div>
+  
+  ${earnedBadges.length > 0 ? `
+    <div class="earned-badges">
+      <div class="earned-badges-title">✦ NEW BADGES EARNED ✦</div>
+      <div class="earned-badges-list">
+        ${earnedBadges.map((b, i) => `
+          <div class="earned-badge-item" style="animation-delay:${i * 0.15}s">
+            <div class="earned-badge-emoji">${b.emoji}</div>
+            <div class="earned-badge-name">${b.name}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  ` : ''}
+  
+  <div class="result-btns">
+    <button class="btn-primary" id="retry-btn">もう一度チャレンジ ↺</button>
+    <button class="btn-secondary" id="home-btn">ホームに戻る</button>
+  </div>
+</div>
+```
+
+`;
+
+showScreen(‘screen-result’);
+
+// Animate ring after render
+setTimeout(() => {
+const ringFill = document.getElementById(‘ring-fill’);
+if (ringFill) ringFill.style.strokeDashoffset = dashOffset;
+}, 100);
+
+// Show badge unlock popups sequentially
+if (earnedIds.length > 0) {
+setTimeout(() => {
+showBadgeUnlock(earnedIds[0]);
+}, 800);
+}
+
+el.querySelector(’#retry-btn’).addEventListener(‘click’, () => {
+startQuiz(s.unitId, s.level, s.isRandom);
+});
+el.querySelector(’#home-btn’).addEventListener(‘click’, () => {
+exitQuiz();
+});
+}
+
+function exitQuiz() {
+quizSession = null;
+document.getElementById(‘bottom-nav’).style.display = ‘flex’;
+switchTab(‘home’);
+}
+
+function shuffle(arr) {
+const a = […arr];
+for (let i = a.length - 1; i > 0; i–) {
+const j = Math.floor(Math.random() * (i + 1));
+[a[i], a[j]] = [a[j], a[i]];
+}
+return a;
+}
+// =============================================
+//  RIKA LAB — App Entry
+// =============================================
+
+document.addEventListener(‘DOMContentLoaded’, () => {
+// Load persisted state
+loadState();
+
+// Register Service Worker
+if (‘serviceWorker’ in navigator) {
+navigator.serviceWorker.register(‘sw.js’).catch(() => {});
+}
+
+// Init home screen
+renderHome();
+
+// Tab navigation
+document.querySelectorAll(’[data-tab]’).forEach(btn => {
+btn.addEventListener(‘click’, () => {
+const tab = btn.dataset.tab;
+switchTab(tab);
+});
+});
+
+// Random nav button (middle special btn)
+document.getElementById(‘random-nav-btn’).addEventListener(‘click’, () => {
+startQuiz(null, null, true);
+});
+
+// Point overlay close
+document.getElementById(‘point-overlay-close’).addEventListener(‘click’, hidePointOverlay);
+
+// Badge unlock overlay close on bg tap
+document.querySelector(’#badge-unlock-overlay .overlay-bg’).addEventListener(‘click’, hideBadgeUnlock);
+
+// iOS PWA: prevent overscroll bounce on fixed elements
+document.addEventListener(‘touchmove’, e => {
+if (e.target.closest(’.screen’) === null) e.preventDefault();
+}, { passive: false });
+
+// PWA install prompt (Android)
+let deferredPrompt;
+window.addEventListener(‘beforeinstallprompt’, e => {
+e.preventDefault();
+deferredPrompt = e;
+// Could show a custom install button here
+});
+
+// Prevent context menu on long press
+document.addEventListener(‘contextmenu’, e => e.preventDefault());
+});
+</script>
+
+</body>
+</html>
