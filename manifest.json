@@ -1,27 +1,102 @@
 {
-  "name": "Rika Lab ✦ 理科クイズ",
+  "name": "Rika Lab — 理科学習アプリ",
   "short_name": "Rika Lab",
-  "description": "理科が好きになる4択クイズアプリ",
-  "start_url": "/",
+  "description": "小学4〜6年生向け理科学習PWA。四谷大塚準拠31単元162問の4択クイズで楽しく理科を学ぼう！",
+  "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0a1628",
-  "theme_color": "#0a1628",
+  "background_color": "#0f5132",
+  "theme_color": "#f0faf5",
+  "lang": "ja",
+  "dir": "ltr",
+  "categories": ["education", "kids"],
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "./icons/icon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "./icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "screenshots": [],
-  "categories": ["education"],
-  "lang": "ja"
+  "shortcuts": [
+    {
+      "name": "4年生クイズ",
+      "short_name": "4年生",
+      "description": "4年生の理科クイズを始める",
+      "url": "./index.html#grade4",
+      "icons": [{ "src": "./icons/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "5年生クイズ",
+      "short_name": "5年生",
+      "description": "5年生の理科クイズを始める",
+      "url": "./index.html#grade5",
+      "icons": [{ "src": "./icons/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "6年生クイズ",
+      "short_name": "6年生",
+      "description": "6年生の理科クイズを始める",
+      "url": "./index.html#grade6",
+      "icons": [{ "src": "./icons/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ]
 }
